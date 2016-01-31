@@ -26,6 +26,7 @@ public class Grid : MonoBehaviour {
         GameObject stoneObje = Instantiate(stonePrefab) as GameObject;
         stoneObje.transform.parent = this.transform;
         stoneObje.transform.localScale = Vector3.one * 2f;
+        stoneObje.transform.localPosition = Vector3.zero;
 
         stoneAnimation = stoneObje.GetComponent<StoneAnimation>();
 	}
