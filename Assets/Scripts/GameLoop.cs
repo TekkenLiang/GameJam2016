@@ -38,13 +38,13 @@ public class GameLoop : MonoBehaviour {
 
 	void setupPlayers()
 	{
-		GameObject player1 = (GameObject) Instantiate(playerPrefab, player1Pos, transform.rotation);
+		player1 = (GameObject) Instantiate(playerPrefab, player1Pos, transform.rotation);
 		player1.name = "Player 1";
 		PlayerStatus PS1 = player1.GetComponent<PlayerStatus>();
 		PS1.setupPlayerStatus(1 ,totalTask);
 
-		GameObject player2 = (GameObject) Instantiate(playerPrefab, player2Pos, transform.rotation);
-		player1.name = "Player 2";
+		player2 = (GameObject) Instantiate(playerPrefab, player2Pos, transform.rotation);
+		player2.name = "Player 2";
 		PlayerStatus PS2 = player2.GetComponent<PlayerStatus>();
 		PS2.setupPlayerStatus(2 ,totalTask);
 	}
