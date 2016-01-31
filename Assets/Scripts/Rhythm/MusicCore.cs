@@ -252,7 +252,7 @@ public class MusicCore : MonoBehaviour {
 		tempoIntervalHalf = tempoInterval / 2.0f;
 
 		//start timer;
-		currentStepID = 0;
+		currentStepID = 1;
 		resolvedStepID = 0;
 		regNum = 0;
 

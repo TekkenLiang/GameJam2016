@@ -11,7 +11,7 @@ public class TempoHinter : MonoBehaviour {
 
 	public MusicCore musicCore;
 
-
+	public float fadeTime = 0.1f;
 
 	// Use this for initialization
 	void Start () {
@@ -41,4 +41,27 @@ public class TempoHinter : MonoBehaviour {
 			progressBar.fillAmount = 0;
 		}
 	}
+	/*
+	IEnumerator fadeout(bool isGood)
+	{
+		float timer = fadeTime;
+		float originalScale = progressBar.transform.localScale;
+
+		if(!isGood)
+		{
+			progressBar.color = Color.red;
+		}
+
+		while(timer > 0)
+		{
+			timer -= Time.deltaTime;
+			progressBar.transform.localScale = (fadeTime - timer)/fadeTime + 1.0f;
+			progressBar.color.g = timer/fadeTime;
+
+			yield return null;
+		}
+		progressBar.transform.localScale = originalScale;
+		progressBar.color = Color.white;
+		progressBar.guiText = 1.0f;
+	}*/
 }
