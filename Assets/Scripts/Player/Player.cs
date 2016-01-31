@@ -129,6 +129,7 @@ public class Player : MonoBehaviour {
 	{
 		if(regGood)
 		{
+			regGood = false;
 			playerStatus.setPlayerPosition(destX, destY);	//setting status
 			Grid destGrid = gridManager.getGrid(playerStatus.getPlayerPositionX(), playerStatus.getPlayerPositionY());
 
@@ -154,6 +155,9 @@ public class Player : MonoBehaviour {
 					playerAnimation.JumpRight();
 					break;
 				}
+
+				//TODO Level up
+				MusicEventManager.MoveToNextLevel((PlayerID)(playerStatus.playerID -1));
 
 				if (destGrid.targetID == playerStatus.playerID)
 				{   // Reach the current target, do some update 
