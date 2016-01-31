@@ -7,6 +7,11 @@ public class PlayerStatus : MonoBehaviour {
 	public int completedTask = 0;	//
 	public int totalTask = 0;
 
+    protected int posX, posY;
+    public void setPlayerPosition(int x, int y) {posX = x; posY = y;}
+    public int getPlayerPositionX() { return posX; }
+    public int getPlayerPositionY() { return posY; }
+
 	// Use this for initialization
 	void Start () {
 	
