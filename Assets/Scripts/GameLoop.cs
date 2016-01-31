@@ -20,6 +20,9 @@ public class GameLoop : MonoBehaviour {
 
 	public GameObject grids;
 
+	public MusicCore musicCore;
+
+
 	// Use this for initialization
 	void Start () {
 
@@ -32,8 +35,8 @@ public class GameLoop : MonoBehaviour {
 		//spawn player
 		setupPlayers();
 
-		//start music control
-
+		//start music core	(music and rhythm control)
+		startMusicCore(0);
 	}
 
 	void setupPlayers()
@@ -63,6 +66,13 @@ public class GameLoop : MonoBehaviour {
 		//play final music
 
 	}
+
+	void startMusicCore(int song)
+	{
+		musicCore.musicOn(song);
+	}
+
+
 		
 	// Update is called once per frame
 	void Update () {
