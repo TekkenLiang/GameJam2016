@@ -33,7 +33,7 @@ public class StoneAnimation : MonoBehaviour {
 	{
 		foreach(SpriteRenderer shadow in shadowList)
 		{
-			shadow.transform.DOScale(shadow.transform.localScale * 0.2f, shadowLoopTime + Random.Range(-0.3f, 0.3f))
+			shadow.transform.DOScale(shadow.transform.localScale * Random.Range(0.2f, 0.5f), shadowLoopTime + Random.Range(-0.3f, 0.3f))
 			.SetLoops(9999,LoopType.Yoyo)
 			.SetDelay(Random.Range(0, shadowLoopTime));
 		}

@@ -27,15 +27,7 @@ public class PlayerMusicData
 	public int gridY;
 
 };
-
-//public struct inputReg {
-//	public bool ready;
-//	public int stepID;
-//	public float timestamp;
-//	public int gridX;
-//	public int gridY;
-//}
-
+	
 public class MusicCore : MonoBehaviour {
 
 	//music list
@@ -48,8 +40,8 @@ public class MusicCore : MonoBehaviour {
 	public float maxAllowedDiff = 0.55f;
 
 
-//	public inputReg player1Reg;
-//	public inputReg player2Reg;
+	public Player player1Player;
+	public Player player2Player;
 
 
 
@@ -106,7 +98,7 @@ public class MusicCore : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		//TODO: Remove this, and call from GameManager
-		MusicEventManager.StartGame();
+		//MusicEventManager.StartGame();
 	}
 
 	void OnGameStart()
@@ -121,6 +113,8 @@ public class MusicCore : MonoBehaviour {
 
 		StartCoroutine(playPlayer1);
 		StartCoroutine(playPlayer2);
+
+		musicOn(0);
 
 		//StopCoroutine()
 	}
@@ -252,7 +246,7 @@ public class MusicCore : MonoBehaviour {
 		tempoIntervalHalf = tempoInterval / 2.0f;
 
 		//start timer;
-		currentStepID = 0;
+		currentStepID = 1;
 		resolvedStepID = 0;
 		regNum = 0;
 
@@ -333,15 +327,19 @@ public class MusicCore : MonoBehaviour {
 			if(Player1Data.timestamp < Player2Data.timestamp)
 			{
 				//player 1 win
+				player1Player.MakeMove();
 			}
 			else
 			{
 				//player 2 win
+				player2Player.MakeMove();
 			}
 		}
 		else
 		{
 			//both can go
+			player1Player.MakeMove();
+			player2Player.MakeMove();
 		}
 
 		resolvedStepID += 1;

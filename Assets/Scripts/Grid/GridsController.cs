@@ -13,6 +13,9 @@ public class GridsController : MonoBehaviour {
     private float gridWidth;
     private Grid[,] grids;
 
+	public Grid player1CurrentTarget;
+	public Grid player2CurrentTarget;
+
     // Use this for initialization
     public void InitializeGrids() {
         // set grid size
@@ -32,6 +35,7 @@ public class GridsController : MonoBehaviour {
                 gridInstance.setPosition(position);
                 grids[j, i] = gridInstance;
                 gridInstance.transform.SetParent(transform, false);
+				//gridInstance.gridsController = transform.parent;
             }
         }
     }
@@ -39,6 +43,14 @@ public class GridsController : MonoBehaviour {
     public void SetTargetForPlayer(int playerID, int gridX, int gridY)
     {
         grids[gridX, gridY].setToTargetGrid(playerID);
+		if(playerID == 1)
+		{
+			player1CurrentTarget = grids[gridX, gridY];
+		}
+		else
+		{
+			player2CurrentTarget = grids[gridX, gridY];
+		}
     }
 	
     // get grid based on its idex
@@ -64,6 +76,14 @@ public class GridsController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-	
+		if(!player1CurrentTarget)
+		{
+			SetTargetForPlayer(1,Random.Range(0, 2),Random.Range(0, 2));
+		}
+		if(!player2CurrentTarget)
+		{
+			SetTargetForPlayer(2,Random.Range(0, 2),Random.Range(0, 2));
+		}
+
 	}
 }

@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using DG.Tweening;
 
 public class PlayerAnimation : MonoBehaviour {
 
 	[SerializeField] Animator myAnimatior;
+
+	[SerializeField] SpriteRenderer[] patterns;
 	void Awake()
 	{
 		if (myAnimatior == null )
@@ -11,6 +14,16 @@ public class PlayerAnimation : MonoBehaviour {
 			myAnimatior = GetComponent<Animator>();
 		}
 
+	}
+
+	int patternIndex = 0;
+	[SerializeField] float patternFadeInTime = 1f;
+	void UpgradePattern()
+	{
+		if (patternIndex < patterns.Length-1)
+		{
+			patterns[patternIndex].DOFade(1f, patternFadeInTime);
+		}
 	}
 
 	void SetLeft()
