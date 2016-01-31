@@ -7,16 +7,28 @@ public enum PlayerID
 	PLAYER2
 }
 
+public struct inputReg {
+	public bool ready;
+	public int stepID;
+	public float timestamp;
+	public int gridX;
+	public int gridY;
+}
+
 public class MusicCore : MonoBehaviour {
 
 	//music list
 	public float[] tempoIntervals;
 
 	[SerializeField]
-	float tempoInterval = 0;
+	public float tempoInterval = 0;
 	float tempoIntervalHalf = 0;
 
 	public float maxAllowedDiff = 0.55f;
+
+
+	public inputReg player1Reg;
+	public inputReg player2Reg;
 
 
 	[SerializeField]
@@ -47,7 +59,7 @@ public class MusicCore : MonoBehaviour {
 	};
 
 
-
+	[SerializeField]
 	private bool isOn;
 
 	public int MaxLevel = 4;
@@ -82,6 +94,13 @@ public class MusicCore : MonoBehaviour {
 		playPlayer1 = PlayPlayerMusic(PlayerID.PLAYER1);
 		playPlayer2 = PlayPlayerMusic(PlayerID.PLAYER2);
 	}
+
+
+
+
+
+
+
 
 	// Use this for initialization
 	void Start () {
@@ -189,23 +208,22 @@ public class MusicCore : MonoBehaviour {
 
 		yield break;
 	}
-		
+
 	// Update is called once per frame
 	void Update () {
-		
+
 	}
 
 	void FixedUpdate()
 	{
 		if(isOn)
 		{
-			timer += Time.fixedDeltaTime;
-
+			timer += Time.deltaTime;
 			if(timer > tempoInterval)	//reset timer
 			{
 				currentStepID += 1;
 				timer = 0;
-				if(resolvedStepID > 100)
+				if(resolvedStepID > 100)	//just to prevent overflow
 				{
 					resolvedStepID %= 100;
 					currentStepID %= 100;
@@ -229,9 +247,6 @@ public class MusicCore : MonoBehaviour {
 
 	public void musicOn(int idx)
 	{
-		//play music
-
-
 		//setup rhytm
 		tempoInterval = tempoIntervals[idx];
 		tempoIntervalHalf = tempoInterval / 2.0f;
@@ -244,29 +259,74 @@ public class MusicCore : MonoBehaviour {
 		isOn = true;
 	}
 
+
+
+
 	public bool regPlayerInput(int playerID, int gridX, int gridY)
 	{
-		
+		if(playerID == 1)
+		{
+			if(player1Reg.ready)
+			{
+				return regPlayerInputCheckTime(player1Reg,gridX,gridY);
+			}
+			else
+			{
+				return false;	//not ready
+			}
+		}
+		else
+		{
+			if(player2Reg.ready)
+			{
+				return regPlayerInputCheckTime(player2Reg,gridX,gridY);
+			}
+			else
+			{
+				return false;	//not ready
+			}
+		}
+	}
+
+
+
+	//inputReg reg
+	bool regPlayerInputCheckTime(inputReg reg, int gridX, int gridY)
+	{
 		if(tempoInterval - timer <= maxAllowedDiff)	//early
 		{
-			playerRegTime[playerID - 1] = tempoInterval - timer;
 			regNum += 1;
+			regInputToStruct(reg, tempoInterval - timer, resolvedStepID + 1, gridX, gridY);
 			return true;
 		}
 		else if(timer <= maxAllowedDiff)	//late
 		{
-			playerRegTime[playerID - 1] = tempoInterval - timer;
 			regNum += 1;
+			regInputToStruct(reg, tempoInterval - timer, resolvedStepID + 1, gridX, gridY);
 			return true;
 		}
-		else
+		else	//bad timing
 		{
-			return false;	//bad timing
+			regNum += 1;
+			regInputToStruct(reg, tempoInterval, resolvedStepID + 1, gridX, gridY);	//reg to some value always lose in conflict
+			return false;
 		}
 	}
 
+	void regInputToStruct(inputReg reg, float timestamp, int stepID, int gridX, int gridY)
+	{
+		reg.timestamp = timestamp;
+		reg.stepID = stepID;
+		reg.gridX = gridX;
+		reg.gridY = gridY;
+		reg.ready = false;
+	}
+		
 	void resolve()
 	{
+		player1Reg.ready = true;
+		player2Reg.ready = true;
+
 		resolvedStepID += 1;
 		regNum = 0;
 	}

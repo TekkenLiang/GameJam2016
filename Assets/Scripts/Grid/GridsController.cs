@@ -12,8 +12,9 @@ public class GridsController : MonoBehaviour {
     private float gridHeight;
     private float gridWidth;
     private Grid[,] grids;
+
     // Use this for initialization
-    void Start () {
+    public void InitializeGrids() {
         // set grid size
         Grid grid = gridObject.GetComponent<Grid>();
         gridHeight = grid.height;
@@ -29,10 +30,15 @@ public class GridsController : MonoBehaviour {
                 Vector3 position = new Vector3(x, y, 0);
                 Grid gridInstance = (Grid)Instantiate(grid, position, Quaternion.identity);
                 gridInstance.setPosition(position);
-                grids[i, j] = gridInstance;
+                grids[j, i] = gridInstance;
                 gridInstance.transform.SetParent(transform, false);
             }
         }
+    }
+
+    public void SetTargetForPlayer(int playerID, int gridX, int gridY)
+    {
+        grids[gridX, gridY].setToTargetGrid(playerID);
     }
 	
     // get grid based on its idex
@@ -51,6 +57,10 @@ public class GridsController : MonoBehaviour {
         return gridWidth;
     }
 
+    void Start()
+    {
+
+    }
 
 	// Update is called once per frame
 	void Update () {

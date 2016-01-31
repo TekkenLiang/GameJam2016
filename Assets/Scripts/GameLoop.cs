@@ -4,17 +4,18 @@ using System.Collections;
 public class GameLoop : MonoBehaviour {
 
 	//timer
-	public float timeLimit = 0;
+	public float timeLimit = 30;
 	[SerializeField]
-	float timer = 5.0f;
+	float gameTimer = 30.0f, beatTimer;
 
 	public int totalTask = 5;
 
 	//Players
-	public GameObject playerPrefab;
+	public GameObject playerPrefab1;
 	public GameObject player1;
 	public Vector2 player1Pos;
 
+    public GameObject playerPrefab2;
 	public GameObject player2;
 	public Vector2 player2Pos;
 
@@ -27,10 +28,13 @@ public class GameLoop : MonoBehaviour {
 	void Start () {
 
 		//initialize data
-		timer = timeLimit;
+		gameTimer = timeLimit;
+        beatTimer = musicCore.tempoInterval;
 
 		//initialize grid
-
+        grids.InitializeGrids();
+        grids.SetTargetForPlayer(1, 1, 2);
+        grids.SetTargetForPlayer(2, 4, 2);
 
 		//spawn player
 		setupPlayers();
@@ -42,16 +46,18 @@ public class GameLoop : MonoBehaviour {
 	void setupPlayers()
 	{
 
-		player1 = (GameObject) Instantiate(playerPrefab, grids.getGrid((int)player1Pos.x, (int)player1Pos.y).getPositionV3(), transform.rotation);
+		player1 = (GameObject) Instantiate(playerPrefab1, grids.getGrid((int)player1Pos.x, (int)player1Pos.y).getPositionV3(), transform.rotation);
 		player1.name = "Player 1";
         player1.GetComponent<Player>().grids = grids;
+        player1.GetComponent<Player>().musicCore = musicCore;
 		PlayerStatus PS1 = player1.GetComponent<PlayerStatus>();
 		PS1.setupPlayerStatus(1 ,totalTask);
         PS1.setPlayerPosition((int)player1Pos.x, (int)player1Pos.y);
 
-        player2 = (GameObject)Instantiate(playerPrefab, grids.getGrid((int)player2Pos.x, (int)player2Pos.y).getPositionV3(), transform.rotation);
+        player2 = (GameObject)Instantiate(playerPrefab2, grids.getGrid((int)player2Pos.x, (int)player2Pos.y).getPositionV3(), transform.rotation);
         player2.name = "Player 2";
         player2.GetComponent<Player>().grids = grids;
+        player2.GetComponent<Player>().musicCore = musicCore;
 		PlayerStatus PS2 = player2.GetComponent<PlayerStatus>();
 		PS2.setupPlayerStatus(2 ,totalTask);
         PS2.setPlayerPosition((int)player2Pos.x, (int)player2Pos.y);
@@ -81,11 +87,18 @@ public class GameLoop : MonoBehaviour {
 		
 	// Update is called once per frame
 	void Update () {
-		timer -= Time.deltaTime;
-		if(timer < 0)
+        gameTimer -= Time.deltaTime;
+        beatTimer -= Time.deltaTime;
+
+        if (beatTimer < 0)
+        {
+            beatTimer = musicCore.tempoInterval;    // reset beat timer
+        }
+
+        if (gameTimer < 0)
 		{
 			endgame();
-            timer = 5.0f;
+            gameTimer = timeLimit;
 		}
 	}
 }
