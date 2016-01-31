@@ -14,7 +14,7 @@ public class MusicCore : MonoBehaviour {
 	public float[] tempoIntervals;
 
 	[SerializeField]
-	float tempoInterval = 0;
+	public float tempoInterval = 0;
 	float tempoIntervalHalf = 0;
 
 	public float maxAllowedDiff = 0.55f;

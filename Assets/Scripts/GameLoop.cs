@@ -4,9 +4,9 @@ using System.Collections;
 public class GameLoop : MonoBehaviour {
 
 	//timer
-	public float timeLimit = 0;
+	public float timeLimit = 30;
 	[SerializeField]
-	float timer = 5.0f;
+	float gameTimer = 30.0f, beatTimer;
 
 	public int totalTask = 5;
 
@@ -27,7 +27,8 @@ public class GameLoop : MonoBehaviour {
 	void Start () {
 
 		//initialize data
-		timer = timeLimit;
+		gameTimer = timeLimit;
+        beatTimer = musicCore.tempoInterval;
 
 		//initialize grid
         grids.InitializeGrids();
@@ -81,11 +82,18 @@ public class GameLoop : MonoBehaviour {
 		
 	// Update is called once per frame
 	void Update () {
-		timer -= Time.deltaTime;
-		if(timer < 0)
+        gameTimer -= Time.deltaTime;
+        beatTimer -= Time.deltaTime;
+
+        if (beatTimer < 0)
+        {
+            beatTimer = musicCore.tempoInterval;    // reset beat timer
+        }
+
+        if (gameTimer < 0)
 		{
 			endgame();
-            timer = 5.0f;
+            //timer = timeLimit;
 		}
 	}
 }
