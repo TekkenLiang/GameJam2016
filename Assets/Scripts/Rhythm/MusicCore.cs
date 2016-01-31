@@ -125,6 +125,8 @@ public class MusicCore : MonoBehaviour {
 
 	void OnGameEnd()
 	{
+		Debug.Log("GAME END: D Style");
+
 		StopCoroutine(playPlayer1);
 		StopCoroutine(playPlayer2);
 
@@ -227,7 +229,7 @@ public class MusicCore : MonoBehaviour {
 
 		int maxAudioID = playerData.TrackScript.TrackListLength - 1;
 
-		while (playerData.currentLevel <= MaxLevel)
+		while (playerData.currentLevel < MaxLevel)
 		{// Loop will run from Start of Track to End of Track.
 			if (playerData.audioID > maxAudioID)
 				break;
@@ -260,7 +262,7 @@ public class MusicCore : MonoBehaviour {
 			for (int i=0; i<numberOfBeats; ++i)
 			{
 				float actualStartTime = (i*beatDuration) + startTime;
-				if (currentAudioID != playerData.audioID || playerData.currentLevel > MaxLevel)
+				if (currentAudioID != playerData.audioID || playerData.currentLevel >= MaxLevel)
 				{
 					bContinue = true;
 					break;
