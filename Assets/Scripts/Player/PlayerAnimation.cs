@@ -45,7 +45,7 @@ public class PlayerAnimation : MonoBehaviour {
 			JumpDown();
 		}
 
-		if (Input.GetKey(KeyCode.DownArrow))
+		if (Input.GetKey(KeyCode.F))
 		{
 			Fail();
 		}
