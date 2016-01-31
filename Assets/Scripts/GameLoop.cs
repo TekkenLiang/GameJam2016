@@ -30,7 +30,7 @@ public class GameLoop : MonoBehaviour {
 		timer = timeLimit;
 
 		//initialize grid
-
+        grids.InitializeGrids();
 
 		//spawn player
 		setupPlayers();

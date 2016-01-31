@@ -12,8 +12,9 @@ public class GridsController : MonoBehaviour {
     private float gridHeight;
     private float gridWidth;
     private Grid[,] grids;
+
     // Use this for initialization
-    void Start () {
+    public void InitializeGrids() {
         // set grid size
         Grid grid = gridObject.GetComponent<Grid>();
         gridHeight = grid.height;
@@ -51,6 +52,10 @@ public class GridsController : MonoBehaviour {
         return gridWidth;
     }
 
+    void Start()
+    {
+
+    }
 
 	// Update is called once per frame
 	void Update () {
