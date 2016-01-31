@@ -6,36 +6,21 @@ public class GridsController : MonoBehaviour {
     // public variable defines
     public int gridNumberX;
     public int gridNumberY;
+    public int height;
+    public int width;
     public GameObject gridObject; // grid prefab
 
-    // private variable defines
-    private int height;
-    private int width;
+    // private variable defines   
     private int gridsNum;
     private float gridHeight;
     private float gridWidth;
 
     // Use this for initialization
     void Start () {
-        Resolution[] resolutions = Screen.resolutions;
-        if (resolutions.Length == 1)
-        {
-            foreach (Resolution res in resolutions)
-            {
-                height = res.height;
-                width = res.width;
-            }
-        }
-        gridHeight = height / gridNumberY;
-        gridWidth = width / gridNumberX;
-        gridsNum = gridNumberX * gridNumberY;
         // set grid size
         Grid grid = gridObject.GetComponent<Grid>();
-        if(grid)
-        {
-            grid.setHeight(gridHeight);
-            grid.setWidth(gridWidth);
-        }
+        gridHeight = grid.height;
+        gridWidth = grid.width;
 
         // spawn grids
         for(int i = 0; i < gridNumberY; ++i)
@@ -43,7 +28,7 @@ public class GridsController : MonoBehaviour {
             float y = (i + 0.5f) * gridHeight;
             for (int j = 0; j < gridNumberX; ++j)
             {
-                float x = (i + 0.5f) * gridWidth;               
+                float x = (j + 0.5f) * gridWidth;               
                 Vector3 position = new Vector3(x, y, 0);
                 Instantiate(grid, position, Quaternion.identity);
             }
