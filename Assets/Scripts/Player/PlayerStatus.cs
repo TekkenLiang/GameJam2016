@@ -12,6 +12,8 @@ public class PlayerStatus : MonoBehaviour {
     public int getPlayerPositionX() { return posX; }
     public int getPlayerPositionY() { return posY; }
 
+    public Player player;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -27,6 +29,7 @@ public class PlayerStatus : MonoBehaviour {
 		playerID = id;
 		totalTask = tasks;
 		completedTask = 0;
+		player.InitPlayerAnimation();
 	}
 
 	public void completeTask()

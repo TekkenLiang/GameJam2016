@@ -23,43 +23,10 @@ public class PlayerAnimation : MonoBehaviour {
 		transform.localScale = new Vector3(1f,1f,1f);
 	}
 
-	void Update()
-	{
-		if (Input.GetKey(KeyCode.RightArrow))
-		{
-			JumpRight();
-		}
-
-		if (Input.GetKey(KeyCode.LeftArrow))
-		{
-			JumpLeft();
-		}
-
-		if (Input.GetKey(KeyCode.UpArrow))
-		{
-			JumpUp();
-		}
-
-		if (Input.GetKey(KeyCode.DownArrow))
-		{
-			JumpDown();
-		}
-
-		if (Input.GetKey(KeyCode.F))
-		{
-			Fail();
-		}
-	}
-
 	public void JumpRight()
 	{
 		myAnimatior.SetBool("jump",true);
 		SetRight();
-	}
-
-	public void Fail()
-	{
-		myAnimatior.SetBool("fail",true);
 	}
 
 	public void JumpLeft()
@@ -76,6 +43,15 @@ public class PlayerAnimation : MonoBehaviour {
 	public void JumpDown()
 	{
 		myAnimatior.SetBool("jump",true);
+	}
+
+
+	public void Fail(bool isRight=false,bool isLeft=false)
+	{
+		if (isRight) SetRight();
+		if (isLeft) SetLeft();
+
+		myAnimatior.SetBool("fail",true);
 	}
 
 }

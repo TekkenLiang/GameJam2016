@@ -19,6 +19,8 @@ public class StoneAnimation : MonoBehaviour {
 	[SerializeField] GameObject stoneEffect;
 
 	[SerializeField] AnimationCurve moveCurve;
+
+
 	void Awake()
 	{
 		foreach(SpriteRenderer shadow in shadowList)
@@ -40,7 +42,6 @@ public class StoneAnimation : MonoBehaviour {
 
 	public void Glow()
 	{
-		StartCoroutine(StoneMove());
 		pattern.DOColor(glowColor, glowTime);
 
 		pattern.DOColor(normalColor, glowTime).SetDelay(glowTime + glowDuration);
@@ -49,25 +50,45 @@ public class StoneAnimation : MonoBehaviour {
 		effect.transform.parent = this.transform;
 		effect.transform.localPosition = Vector3.zero;
 
+		StartCoroutine(StoneMove(moveCurve,glowTime+glowDuration));
+
 	}
 
-	IEnumerator StoneMove()
+	public void Move()
 	{
+		StartCoroutine(StoneMove(moveCurve));
+	}
+
+	bool ismoving = false;
+	IEnumerator StoneMove(AnimationCurve curve, float delay = 0 )
+	{
+		if (ismoving)
+			yield break;
+		ismoving = true;
 		float timer = 0;
 		Vector3 stoneOriPosition = stone.transform.position;
 		Vector3 shadowOriPosition = shadow.transform.position;
 		while(true)
 		{
-			stone.transform.position = stoneOriPosition + new Vector3(0,moveCurve.Evaluate(timer/(glowTime + glowDuration)),0);
-			shadow.transform.position = shadowOriPosition - new Vector3(0,moveCurve.Evaluate(timer/(glowTime + glowDuration)),0);
-			timer += Time.deltaTime;
+			if (timer > delay)
+			{
+				stone.transform.position = stoneOriPosition + new Vector3(0,curve.Evaluate((timer-delay)/(glowTime + glowDuration)),0);
+				shadow.transform.position = shadowOriPosition - new Vector3(0,curve.Evaluate((timer-delay)/(glowTime + glowDuration)),0);
+			}
 
-			if (timer > glowTime + glowDuration)
+			if (timer > glowTime + glowDuration + delay)
 				break;
 
+			timer += Time.deltaTime;
 			yield return null;
 		}
+		ismoving = false;
 		yield break;
+
+	}
+
+	public void SetStoneType(StoneType type, PlayerType player = PlayerType.None , int level = 0)
+	{
 
 	}
 }
