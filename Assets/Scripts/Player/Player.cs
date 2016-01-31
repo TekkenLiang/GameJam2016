@@ -19,6 +19,8 @@ public class Player : MonoBehaviour {
 
     [SerializeField] Vector3 initOffset = new Vector3(0,3f,0);
 
+    private GameLoop gameLoop;
+
     bool hasMissed;
     float missedTimer;
 
@@ -28,6 +30,7 @@ public class Player : MonoBehaviour {
         playerStatus.player = this;
         hasMissed = false;
         //missedTimer = musicCore.tempoInterval;
+        gameLoop = GameObject.Find("GameLogic").GetComponent<GameLoop>();
 	}
 	
 	// Update is called once per frame
@@ -77,11 +80,21 @@ public class Player : MonoBehaviour {
                 break;
         }
         Grid temGrid = gridManager.getGrid(playerStatus.getPlayerPositionX(), playerStatus.getPlayerPositionY());
-        
-        // Check timing, pass the intention to a resolve class
 
+        // Check if player cross each other
+        bool isCross = false;
+        for (int i = 0; i < 2; ++i)
+        {
+            PlayerStatus status = gameLoop.playersStatus[i];
+            if (status && (status.playerID != playerStatus.playerID) && (status.getPlayerPositionX() == destX && status.getPlayerPositionY() == destY))
+            {
+                isCross = true;
+            }
+        }
+
+        // Check timing, pass the intention to a resolve class
         if ((musicCore.regPlayerInput(playerStatus.playerID, destX, destY))
-			&& ((destX>=0 && destY>=0 && destX<gridManager.gridNumberX && destY<gridManager.gridNumberY) ))
+			&& (destX>=0 && destY>=0 && destX<gridManager.gridNumberX && destY<gridManager.gridNumberY) && !isCross)
         {
             Debug.Log("Move succeeded!");
             playerStatus.setPlayerPosition(destX, destY);
