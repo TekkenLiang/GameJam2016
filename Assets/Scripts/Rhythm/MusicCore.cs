@@ -1,6 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+public struct inputReg {
+	public float timestamp;
+	int gridX;
+	int gridY;
+}
+
+
 public class MusicCore : MonoBehaviour {
 
 	//music list
@@ -28,19 +35,24 @@ public class MusicCore : MonoBehaviour {
 	public float[] playerRegTime;
 
 
-
+	[SerializeField]
 	private bool isOn;
+
+
+
+
+
+
+
 
 
 	// Use this for initialization
 	void Start () {
-		isOn = false;
-
 	}
-		
+
 	// Update is called once per frame
 	void Update () {
-		
+
 	}
 
 	void FixedUpdate()
@@ -48,12 +60,11 @@ public class MusicCore : MonoBehaviour {
 		if(isOn)
 		{
 			timer += Time.fixedDeltaTime;
-
 			if(timer > tempoInterval)	//reset timer
 			{
 				currentStepID += 1;
 				timer = 0;
-				if(resolvedStepID > 100)
+				if(resolvedStepID > 100)	//just to prevent overflow
 				{
 					resolvedStepID %= 100;
 					currentStepID %= 100;
@@ -77,9 +88,6 @@ public class MusicCore : MonoBehaviour {
 
 	public void musicOn(int idx)
 	{
-		//play music
-
-
 		//setup rhytm
 		tempoInterval = tempoIntervals[idx];
 		tempoIntervalHalf = tempoInterval / 2.0f;
@@ -89,12 +97,15 @@ public class MusicCore : MonoBehaviour {
 		resolvedStepID = 0;
 		regNum = 0;
 
+
+		Debug.Log(isOn);
 		isOn = true;
+		Debug.Log(isOn);
 	}
 
 	public bool regPlayerInput(int playerID, int gridX, int gridY)
 	{
-		
+
 		if(tempoInterval - timer <= maxAllowedDiff)	//early
 		{
 			playerRegTime[playerID - 1] = tempoInterval - timer;
