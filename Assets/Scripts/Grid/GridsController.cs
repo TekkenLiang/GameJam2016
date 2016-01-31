@@ -30,7 +30,7 @@ public class GridsController : MonoBehaviour {
                 Vector3 position = new Vector3(x, y, 0);
                 Grid gridInstance = (Grid)Instantiate(grid, position, Quaternion.identity);
                 gridInstance.setPosition(position);
-                grids[i, j] = gridInstance;
+                grids[j, i] = gridInstance;
                 gridInstance.transform.SetParent(transform, false);
             }
         }
