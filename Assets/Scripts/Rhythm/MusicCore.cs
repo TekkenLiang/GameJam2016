@@ -26,8 +26,8 @@ public class MusicCore : MonoBehaviour {
 	public inputReg player2Reg;
 
 
-	[SerializeField]
-	float timer = 0;
+
+	public float timer = 0;
 	[SerializeField]
 	int currentStepID;
 	[SerializeField]
@@ -85,7 +85,6 @@ public class MusicCore : MonoBehaviour {
 				{
 					resolve();
 				}
-				//no conflict?
 			}
 		}
 	}
@@ -172,9 +171,25 @@ public class MusicCore : MonoBehaviour {
 		player1Reg.ready = true;
 		player2Reg.ready = true;
 
+		//choose winner
+		if((player1Reg.gridX == player2Reg.gridX) && (player1Reg.gridY == player2Reg.gridY))
+		{
+			if(player1Reg.timestamp < player2Reg.timestamp)
+			{
+				//player 1 win
+			}
+			else
+			{
+				//player 2 win
+			}
+		}
+		else
+		{
+			//both can go
+		}
+
 		resolvedStepID += 1;
 		regNum = 0;
 	}
-
 
 }
