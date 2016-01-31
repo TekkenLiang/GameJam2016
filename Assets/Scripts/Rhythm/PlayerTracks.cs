@@ -3,19 +3,28 @@ using System.Collections;
 
 public class PlayerTracks : MonoBehaviour {
 
-	[SerializeField] 
-	private AudioClip[] AudioClipList;
+	[System.Serializable]
+	public class Track
+	{
+		public AudioClip Clip = null;
+		public float StartTime = -1;
+		public float StopTime = -1;
 
-	private int AudioClipListLength = -1;
+		public float BeatMoment;
+		public float BeatBuffer;
+	}
+
+	[SerializeField]
+	private Track[] AudioTrackList;
 
 	public int TrackListLength
 	{
-		get { return AudioClipListLength; }
+		get { return AudioTrackList.Length; }
 	}
 
 	void Awake()
 	{
-		AudioClipListLength = AudioClipList.Length; 
+		
 	}
 
 	// Use this for initialization
@@ -26,15 +35,59 @@ public class PlayerTracks : MonoBehaviour {
 
 	public AudioClip GetClip(int index)
 	{
-		if (index < 0 || index >= AudioClipListLength)
+		if (index < 0 || index >= TrackListLength)
 		{
-			Debug.LogError("Invalid index fro Clip Requested");
+			Debug.LogError("Invalid index for Clip Requested");
 			return null;
 		}
 
-		return AudioClipList[index];
+		return AudioTrackList[index].Clip;
 	}
 
-	
+	public float GetClipStartTime(int index)
+	{
+		if (index < 0 || index >= TrackListLength)
+		{
+			Debug.LogError("Invalid index for Clip Requested");
+			return -1;
+		}
+
+		return AudioTrackList[index].StartTime;
+	}
+
+	public float GetClipStopTime(int index)
+	{
+		if (index < 0 || index >= TrackListLength)
+		{
+			Debug.LogError("Invalid index for Clip Requested");
+			return -1;
+		}
+
+		return AudioTrackList[index].StopTime;
+	}
+
+	public float GetBeatMoment(int index)
+	{
+		if (index < 0 || index >= TrackListLength)
+		{
+			Debug.LogError("Invalid index for Clip Requested");
+			return -1;
+		}
+
+		return AudioTrackList[index].BeatMoment;
+	}
+
+	public float GetBeatBuffer(int index)
+	{
+		if (index < 0 || index >= TrackListLength)
+		{
+			Debug.LogError("Invalid index for Clip Requested");
+			return -1;
+		}
+
+		return AudioTrackList[index].BeatBuffer;
+	}
+
+
 
 }

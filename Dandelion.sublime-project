@@ -1,0 +1,11 @@
+/* This file (GameJam2016.sublime-project) is auto-generated. Modifications are not saved. */
+
+{
+  "folders":
+  [ { "folder_exclude_patterns": [ "GameJam2016/Library" ]
+    , "file_exclude_patterns": [ "*.meta", "*.prefab" , "*.psd" , "*.png" ]
+    , "path": "."
+    }
+  ]
+  , "solution_file": "GameJam2016.sln"
+}
