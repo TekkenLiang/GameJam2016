@@ -8,14 +8,18 @@ public class GridsController : MonoBehaviour {
     public int gridNumberY;
     public GameObject gridObject; // grid prefab
 
+    public Vector2[] targetList1 = new Vector2[8];
+    public Vector2[] targetList2 = new Vector2[8];
+    public Grid player1CurrentTarget;
+    public Grid player2CurrentTarget;
+    int player1CurStage;
+    int player2CurStage;
+
     // private variable defines   
     private float gridHeight;
     private float gridWidth;
     private Grid[,] grids;
-
-	public Grid player1CurrentTarget;
-	public Grid player2CurrentTarget;
-
+    
     // Use this for initialization
     public void InitializeGrids() {
         // set grid size
@@ -38,20 +42,32 @@ public class GridsController : MonoBehaviour {
 				//gridInstance.gridsController = transform.parent;
             }
         }
+
+        player1CurStage = 0;
+        player2CurStage = 0;
+        SetTargetForPlayer(1, player1CurStage);
+        SetTargetForPlayer(2, player2CurStage);
     }
 
-    public void SetTargetForPlayer(int playerID, int gridX, int gridY)
+    public void SetTargetForPlayer(int playerID, int stage)
     {
-        grids[gridX, gridY].setToTargetGrid(playerID);
+        Debug.Log(stage + "for Player: " + playerID);
+        //grids[gridX, gridY].setToTargetGrid(playerID);
 		if(playerID == 1)
 		{
-			player1CurrentTarget = grids[gridX, gridY];
+            Grid targetGrid = grids[(int)targetList1[stage].x, (int)targetList1[stage].y];
+            targetGrid.setToTargetGrid(playerID);
+            player1CurrentTarget = targetGrid;
 		}
 		else
 		{
-			player2CurrentTarget = grids[gridX, gridY];
+            Grid targetGrid = grids[(int)targetList2[stage].x, (int)targetList2[stage].y];
+            targetGrid.setToTargetGrid(playerID);
+            player2CurrentTarget = targetGrid;
 		}
     }
+
+
 	
     // get grid based on its idex
     public Grid getGrid(int x, int y)
@@ -78,11 +94,13 @@ public class GridsController : MonoBehaviour {
 	void Update () {
 		if(!player1CurrentTarget)
 		{
-			SetTargetForPlayer(1,Random.Range(0, 2),Random.Range(0, 2));
+			SetTargetForPlayer(1, player1CurStage);
+            player1CurStage++;
 		}
 		if(!player2CurrentTarget)
 		{
-			SetTargetForPlayer(2,Random.Range(0, 2),Random.Range(0, 2));
+			SetTargetForPlayer(2, player2CurStage);
+            player2CurStage++;
 		}
 
 	}

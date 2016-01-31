@@ -27,7 +27,7 @@ public class Player : MonoBehaviour {
 	int destX;
 	int destY;
 	int currentDirection;
-	Grid temGrid;
+	Grid curGrid;
 
 	// Use this for initialization
 	void Start () {
@@ -85,7 +85,8 @@ public class Player : MonoBehaviour {
 			destX -= 1;
 			break;
 		}
-		temGrid = gridManager.getGrid(playerStatus.getPlayerPositionX(), playerStatus.getPlayerPositionY());
+		curGrid = gridManager.getGrid(playerStatus.getPlayerPositionX(), playerStatus.getPlayerPositionY());
+        curGrid.Move(); // show the intention to move 
 
 		if((destX >= 0 && destY >= 0
 			&& destX < gridManager.gridNumberX && destY < gridManager.gridNumberY))
@@ -98,28 +99,23 @@ public class Player : MonoBehaviour {
 			else
 			{
 				Debug.Log(playerStatus.playerID + " Move failed to be registered!");
-				temGrid.Move();
-				// Press the key in a bad timing, show some feedback effect
-				// GetComponent<SpriteRenderer>().color = Color.red;
+                regGood = false;
+
+                // Press the key in a bad timing, show some feedback effect
 				hasMissed = true;
 				missedTimer = musicCore.tempoInterval / 2.0f;
 
-				regGood = false;
-				//Fail
 				playerAnimation.Fail(direction==4,direction==3);
 			}
 		}
 		else
 		{
-			Debug.Log("Move Failed!");
-			temGrid.Move();
-			// Press the key in a bad timing, show some feedback effect
-			// GetComponent<SpriteRenderer>().color = Color.red;
+            Debug.Log("Move Failed! Destination tile out of index");
+            regGood = false;
+			
 			hasMissed = true;
 			missedTimer = musicCore.tempoInterval / 2.0f;
-
-			regGood = false;
-			//Fail
+			
 			playerAnimation.Fail(direction==4,direction==3);
 		}
 	}
@@ -137,7 +133,7 @@ public class Player : MonoBehaviour {
 			{
 				// transform.position = destGrid.getPositionV3();
 				transform.DOMove(destGrid.getPositionV3(), jumpTime).SetEase(Ease.InOutExpo).SetDelay(jumpPrepareTime);
-				temGrid.Move();
+				//curGrid.Move();
 				destGrid.Glow();
 				switch (currentDirection)
 				{   
