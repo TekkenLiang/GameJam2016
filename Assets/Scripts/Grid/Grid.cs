@@ -14,6 +14,8 @@ public class Grid : MonoBehaviour {
     public int targetID = 0; // 0 means not a target, 1 means target for player1 etc.
 	public GridsController gridsController;
 
+    [SerializeField] GameObject stonePrefab;
+
 
     [SerializeField] StoneAnimation stoneAnimation;
 
@@ -21,7 +23,12 @@ public class Grid : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
-        
+        GameObject stoneObje = Instantiate(stonePrefab) as GameObject;
+        stoneObje.transform.parent = this.transform;
+        stoneObje.transform.localScale = Vector3.one * 2f;
+        stoneObje.transform.localPosition = Vector3.zero;
+
+        stoneAnimation = stoneObje.GetComponent<StoneAnimation>();
 	}
 
 	void Start()
