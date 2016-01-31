@@ -10,8 +10,10 @@ public class TimerProgressBar : MonoBehaviour {
     private Vector2 fullTimerBarSize;
     private Vector2 emptyTimerBarSize;
 
-    public Vector2 startPos;
-    public Vector2 size;
+    public Vector2 fullBarstartPos;
+    public Vector2 emptyBarstartPos;
+    public Vector2 fullBarSize;
+    public Vector2 emptyBarSize;
     public Texture2D fullTimerBar;
     public Texture2D emptyTimerBar;
 
@@ -39,14 +41,9 @@ public class TimerProgressBar : MonoBehaviour {
             Debug.LogError("Assign a Texture in the inspector.");
             return;
         }
-        float currProgress = size.x * Mathf.Clamp01(progress);
-        GUI.DrawTexture(new Rect(startPos.x, startPos.y, size.x, size.y), emptyTimerBar);
-        GUI.DrawTexture(new Rect(startPos.x, startPos.y, size.x * Mathf.Clamp01(progress), size.y), fullTimerBar);
-
-        //string processText = 
-        GUI.TextField(new Rect(startPos.x, startPos.y - size.y, 70, 20), "B.C.1000");
-        GUI.TextField(new Rect(startPos.x + size.x - 70, startPos.y - size.y, 70, 20), "C.E2016");
-        GUI.TextField(new Rect(startPos.x - 18 + size.x * Mathf.Clamp01(progress), startPos.y + size.y, 35, 20), "XXX");
+        float currProgress = fullBarSize.x * Mathf.Clamp01(progress);
+        GUI.DrawTexture(new Rect(emptyBarstartPos.x, emptyBarstartPos.y, emptyBarSize.x, emptyBarSize.y), emptyTimerBar);
+        GUI.DrawTexture(new Rect(fullBarstartPos.x, fullBarstartPos.y, fullBarSize.x * Mathf.Clamp01(progress), fullBarSize.y), fullTimerBar);
     }
 	
 	// Update is called once per frame

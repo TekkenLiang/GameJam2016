@@ -20,16 +20,25 @@ public class StoneAnimation : MonoBehaviour {
 
 	[SerializeField] AnimationCurve moveCurve;
 
+	[SerializeField] Sprite[] normalStone;
+	[SerializeField] Sprite[] StepStone;
+	[SerializeField] Sprite[] DestinationStone;
+	[SerializeField] Sprite[] patternsFirst;
+	[SerializeField] Sprite[] patternsSecond;
+	[SerializeField] Sprite[] patternBasic;
+
+
 
 	void Awake()
 	{
 		foreach(SpriteRenderer shadow in shadowList)
 		{
-			shadow.transform.DOScale(shadow.transform.localScale * 0.5f, shadowLoopTime + Random.Range(-0.3f, 0.3f))
+			shadow.transform.DOScale(shadow.transform.localScale * 0.2f, shadowLoopTime + Random.Range(-0.3f, 0.3f))
 			.SetLoops(9999,LoopType.Yoyo)
 			.SetDelay(Random.Range(0, shadowLoopTime));
 		}
 		pattern.color = normalColor;
+		SetStoneType(StoneType.Normal);
 
 	}
 
@@ -87,8 +96,135 @@ public class StoneAnimation : MonoBehaviour {
 
 	}
 
-	public void SetStoneType(StoneType type, PlayerType player = PlayerType.None , int level = 0)
-	{
+	StoneType myType = StoneType.Normal;
 
+	[SerializeField] float ChangeTypeTime = 1f;
+	StoneType toType;
+	PlayerType toPlayer;
+	int toLevel;
+	public void SetStoneType(StoneType type, PlayerType player = PlayerType.None , int level = 0)
+	{	
+		if (myType != type) // if the type is changed, then do the animation
+		{
+			toType = type;
+			toPlayer = player;
+			toLevel = level;
+			SwitchTypeAnimation();
+		}
+		else
+			SetStoneTypeImediately(type,player,level);
+	}
+	public void SetStoneTypeImediately(StoneType type, PlayerType player = PlayerType.None , int level = 0)
+	{
+		switch(type)
+		{
+			case StoneType.Normal:
+				stone.sprite = normalStone[Random.Range(0, normalStone.Length)];
+				pattern.sprite = patternBasic[Random.Range(0, patternBasic.Length)];
+				InitShadowStatic(false);
+				break;
+			case StoneType.Step:
+				if ( player == PlayerType.First)
+				{	
+					stone.sprite = StepStone[0];
+					pattern.sprite = patternsFirst[level];
+				}
+
+				if ( player == PlayerType.Second)
+				{	
+					stone.sprite = StepStone[1];
+					pattern.sprite = patternsSecond[level];
+				}
+				InitShadowStatic(true);
+				break;
+			case StoneType.Destination:
+				if ( player == PlayerType.First)
+				{	
+					stone.sprite = DestinationStone[0];
+				}
+
+				if ( player == PlayerType.Second)
+				{	
+					stone.sprite = DestinationStone[1];
+				}
+				InitShadowStatic(true);
+				break;
+			case StoneType.Obstcle:
+				break;
+			default:
+				//do nothing
+				break;
+		}
+	}
+
+
+	void SetStoneTypeByTo()
+	{
+		SetStoneTypeImediately(toType, toPlayer, toLevel);
+	}
+	void SwitchTypeAnimation()
+	{
+		stone.transform.DOLocalMoveY(16f , ChangeTypeTime / 2f )
+		.SetRelative(true)
+		.SetEase(Ease.InCirc)
+		.OnComplete(SetStoneTypeByTo);
+
+
+		stone.transform.DOLocalMoveY(-16f , ChangeTypeTime / 2f )
+		.SetRelative(true)
+		.SetEase(Ease.OutCirc)
+		.SetDelay(ChangeTypeTime/2f);
+
+
+		shadow.transform.DOLocalMoveY(-16f , ChangeTypeTime / 2f )
+		.SetRelative(true)
+		.SetEase(Ease.InCirc);
+
+
+		shadow.transform.DOLocalMoveY(16f , ChangeTypeTime / 2f )
+		.SetRelative(true)
+		.SetEase(Ease.OutCirc)
+		.SetDelay(ChangeTypeTime/2f);
+	}
+
+
+
+	bool myIfBig = false;
+	void InitShadowStatic(bool ifBig)
+	{
+		//if the size is not changed then do nothing 
+		if (myIfBig == ifBig)
+			return;
+
+		if (ifBig)
+		{
+			Vector3 shadowScale = shadow.transform.localScale;
+			shadowScale.x = 1.4f;
+			shadow.transform.localScale = shadowScale;
+				
+			foreach(SpriteRenderer s in shadowList)
+			{
+				Vector3 pos = s.transform.localPosition;
+				pos.x = (pos.x > 0)?pos.x + 0.4f:pos.x - 0.4f;
+				s.transform.localPosition = pos;
+			}
+		}
+		else
+		{
+			Vector3 shadowScale = shadow.transform.localScale;
+			shadowScale.x = 1f;
+			shadow.transform.localScale = shadowScale;
+
+			foreach(SpriteRenderer s in shadowList)
+			{
+				Vector3 pos = s.transform.localPosition;
+				pos.x = (pos.x > 0)?pos.x - 0.4f:pos.x + 0.4f;
+				s.transform.localPosition = pos;
+				
+			}
+		}
+
+
+			myIfBig = ifBig;
 	}
 }
