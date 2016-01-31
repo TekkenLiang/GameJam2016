@@ -7,11 +7,11 @@ public class TimerProgressBar : MonoBehaviour {
     private float progress;
     private GameObject gameLogicObj;
     private GameLoop gameLoop;
-    private Vector2 fullTimerBarSize;
-    private Vector2 emptyTimerBarSize;
 
-    public Vector2 startPos;
-    public Vector2 size;
+    public Vector2 fullBartartPos;
+    public Vector2 emptyBarStartPos;
+    public Vector2 fullBarSize;
+    public Vector2 emptyBarSize;
     public Texture2D fullTimerBar;
     public Texture2D emptyTimerBar;
 
@@ -27,9 +27,6 @@ public class TimerProgressBar : MonoBehaviour {
             timeLimit = gameLoop.timeLimit;
             passedTime = 0.0f;
         }
-
-        fullTimerBarSize = fullTimerBar.texelSize;
-        emptyTimerBarSize = emptyTimerBar.texelSize;
     }
 
     void OnGUI()
@@ -39,14 +36,13 @@ public class TimerProgressBar : MonoBehaviour {
             Debug.LogError("Assign a Texture in the inspector.");
             return;
         }
-        float currProgress = size.x * Mathf.Clamp01(progress);
-        GUI.DrawTexture(new Rect(startPos.x, startPos.y, size.x, size.y), emptyTimerBar);
-        GUI.DrawTexture(new Rect(startPos.x, startPos.y, size.x * Mathf.Clamp01(progress), size.y), fullTimerBar);
+        float currProgress = fullBarSize.x * Mathf.Clamp01(progress);
+        GUI.DrawTexture(new Rect(emptyBarStartPos.x, emptyBarStartPos.y, emptyBarSize.x, emptyBarSize.y), emptyTimerBar);
+        GUI.DrawTexture(new Rect(fullBartartPos.x, fullBartartPos.y, currProgress, fullBarSize.y), fullTimerBar);
 
-        //string processText = 
-        GUI.TextField(new Rect(startPos.x, startPos.y - size.y, 70, 20), "B.C.1000");
-        GUI.TextField(new Rect(startPos.x + size.x - 70, startPos.y - size.y, 70, 20), "C.E2016");
-        GUI.TextField(new Rect(startPos.x - 18 + size.x * Mathf.Clamp01(progress), startPos.y + size.y, 35, 20), "XXX");
+        GUI.TextField(new Rect(emptyBarStartPos.x, emptyBarStartPos.y - fullBarSize.y, 70, 20), "B.C.1000");
+        GUI.TextField(new Rect(emptyBarStartPos.x + fullBarSize.x - 70, emptyBarStartPos.y - fullBarSize.y, 70, 20), "C.E2016");
+        GUI.TextField(new Rect(emptyBarStartPos.x - 18 + currProgress, emptyBarStartPos.y + emptyBarSize.y, 35, 20), "XXX");
     }
 	
 	// Update is called once per frame
