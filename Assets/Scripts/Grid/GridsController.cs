@@ -35,6 +35,11 @@ public class GridsController : MonoBehaviour {
             }
         }
     }
+
+    public void SetTargetForPlayer(int playerID, int gridX, int gridY)
+    {
+        grids[gridX, gridY].setToTargetGrid(playerID);
+    }
 	
     // get grid based on its idex
     public Grid getGrid(int x, int y)
