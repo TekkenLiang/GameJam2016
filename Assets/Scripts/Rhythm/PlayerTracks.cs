@@ -6,6 +6,22 @@ public class PlayerTracks : MonoBehaviour {
 	[SerializeField] 
 	private AudioClip[] AudioClipList;
 
+	[System.Serializable]
+	public class Track
+	{
+		[SerializeField] private AudioClip Clip = null;
+		[SerializeField] float StartTime = -1;
+		[SerializeField] float StopTime = -1;
+
+		[SerializeField] int NumberOfBeats = -1;
+
+		[SerializeField] float BeatMoment;
+		[SerializeField] float BeatBuffer;
+	}
+
+	[SerializeField]
+	private Track[] AudioTrackList;
+
 	private int AudioClipListLength = -1;
 
 	public int TrackListLength

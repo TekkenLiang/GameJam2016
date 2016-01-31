@@ -7,13 +7,34 @@ public enum PlayerID
 	PLAYER2
 }
 
-public struct inputReg {
+[System.Serializable]
+public class PlayerMusicData
+{
+	public PlayerID player;
+	public int audioID;
+
+	public PlayerTracks TrackScript;
+	public AudioSource PlayerAudioSource;
+	public int currentLevel;
+
+	public float StartTime;
+	public float StopTime;
+
 	public bool ready;
 	public int stepID;
 	public float timestamp;
 	public int gridX;
 	public int gridY;
-}
+
+};
+
+//public struct inputReg {
+//	public bool ready;
+//	public int stepID;
+//	public float timestamp;
+//	public int gridX;
+//	public int gridY;
+//}
 
 public class MusicCore : MonoBehaviour {
 
@@ -27,8 +48,8 @@ public class MusicCore : MonoBehaviour {
 	public float maxAllowedDiff = 0.55f;
 
 
-	public inputReg player1Reg;
-	public inputReg player2Reg;
+//	public inputReg player1Reg;
+//	public inputReg player2Reg;
 
 
 	[SerializeField]
@@ -43,26 +64,7 @@ public class MusicCore : MonoBehaviour {
 
 	public float[] playerRegTime;
 
-	[System.Serializable]
-	public class PlayerMusicData
-	{
-		public PlayerID player;
-		public int audioID;
 
-		public PlayerTracks TrackScript;
-		public AudioSource PlayerAudioSource;
-		public int currentLevel;
-
-		public float StartTime;
-		public float StopTime;
-        
-        public bool ready;
-        public int stepID;
-        public float timestamp;
-        public int gridX;
-        public int gridY;
-
-	};
     
 	[SerializeField]
 	private bool isOn;
@@ -104,14 +106,14 @@ public class MusicCore : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		isOn = false;
-
 		//TODO: Remove this, and call from GameManager
 		MusicEventManager.StartGame();
 	}
 
 	void OnGameStart()
 	{
+		isOn = false;
+
 		if (BackgroundSource != null)
 		{
 			BackgroundSource.Play();
@@ -266,9 +268,9 @@ public class MusicCore : MonoBehaviour {
 	{
 		if(playerID == 1)
 		{
-			if(player1Reg.ready)
+			if(Player1Data.ready)
 			{
-				return regPlayerInputCheckTime(player1Reg,gridX,gridY);
+				return regPlayerInputCheckTime(Player1Data,gridX,gridY);
 			}
 			else
 			{
@@ -277,9 +279,9 @@ public class MusicCore : MonoBehaviour {
 		}
 		else
 		{
-			if(player2Reg.ready)
+			if(Player2Data.ready)
 			{
-				return regPlayerInputCheckTime(player2Reg,gridX,gridY);
+				return regPlayerInputCheckTime(Player2Data,gridX,gridY);
 			}
 			else
 			{
@@ -291,41 +293,41 @@ public class MusicCore : MonoBehaviour {
 
 
 	//inputReg reg
-	bool regPlayerInputCheckTime(inputReg reg, int gridX, int gridY)
+	bool regPlayerInputCheckTime(PlayerMusicData playerData, int gridX, int gridY)
 	{
 		if(tempoInterval - timer <= maxAllowedDiff)	//early
 		{
 			regNum += 1;
-			regInputToStruct(reg, tempoInterval - timer, resolvedStepID + 1, gridX, gridY);
+			regInputToStruct(playerData, tempoInterval - timer, resolvedStepID + 1, gridX, gridY);
 			return true;
 		}
 		else if(timer <= maxAllowedDiff)	//late
 		{
 			regNum += 1;
-			regInputToStruct(reg, tempoInterval - timer, resolvedStepID + 1, gridX, gridY);
+			regInputToStruct(playerData, tempoInterval - timer, resolvedStepID + 1, gridX, gridY);
 			return true;
 		}
 		else	//bad timing
 		{
 			regNum += 1;
-			regInputToStruct(reg, tempoInterval, resolvedStepID + 1, gridX, gridY);	//reg to some value always lose in conflict
+			regInputToStruct(playerData, tempoInterval, resolvedStepID + 1, gridX, gridY);	//reg to some value always lose in conflict
 			return false;
 		}
 	}
 
-	void regInputToStruct(inputReg reg, float timestamp, int stepID, int gridX, int gridY)
+	void regInputToStruct(PlayerMusicData playerData, float timestamp, int stepID, int gridX, int gridY)
 	{
-		reg.timestamp = timestamp;
-		reg.stepID = stepID;
-		reg.gridX = gridX;
-		reg.gridY = gridY;
-		reg.ready = false;
+		playerData.timestamp = timestamp;
+		playerData.stepID = stepID;
+		playerData.gridX = gridX;
+		playerData.gridY = gridY;
+		playerData.ready = false;
 	}
 		
 	void resolve()
 	{
-		player1Reg.ready = true;
-		player2Reg.ready = true;
+		Player1Data.ready = true;
+		Player2Data.ready = true;
 
 		resolvedStepID += 1;
 		regNum = 0;
