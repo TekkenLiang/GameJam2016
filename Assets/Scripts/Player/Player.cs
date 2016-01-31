@@ -44,7 +44,19 @@ public class Player : MonoBehaviour {
         {
             Debug.Log("Move succeeded!");
             playerStatus.setPlayerPosition(destX, destY);
-            transform.position = grids.getGrid(playerStatus.getPlayerPositionX(), playerStatus.getPlayerPositionY()).getPositionV3();
+            Grid destGrid = grids.getGrid(playerStatus.getPlayerPositionX(), playerStatus.getPlayerPositionY());
+            if (destGrid.isWalkable)
+            {
+                transform.position = destGrid.getPositionV3();
+                if (destGrid.targetID == playerStatus.playerID)
+                {   // Reach the current target, do some update 
+
+                }
+            }
+        }
+        else
+        {   // Press the key in a bad timing, show some feedback effect
+
         }
 
         
