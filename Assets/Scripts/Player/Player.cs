@@ -4,7 +4,7 @@ using DG.Tweening;
 
 public class Player : MonoBehaviour {
 
-    public GridsController grids;
+    public GridsController gridManager;
     public MusicCore musicCore;
     public PlayerStatus playerStatus;
     [SerializeField] GameObject[] playerPrefs;
@@ -73,15 +73,15 @@ public class Player : MonoBehaviour {
                 destX -= 1;
                 break;
         }
-        Grid temGrid = grids.getGrid(playerStatus.getPlayerPositionX(), playerStatus.getPlayerPositionY());
+        Grid temGrid = gridManager.getGrid(playerStatus.getPlayerPositionX(), playerStatus.getPlayerPositionY());
         
         // Check timing, pass the intention to a resolve class
         // if (musicCore.regPlayerInput(playerStatus.playerID, destX, destY))
-        if (true)
+        if (true && (destX>=0 && destY>=0 && destX<gridManager.gridNumberX && destY<gridManager.gridNumberY) )
         {
             Debug.Log("Move succeeded!");
             playerStatus.setPlayerPosition(destX, destY);
-            Grid destGrid = grids.getGrid(playerStatus.getPlayerPositionX(), playerStatus.getPlayerPositionY());
+            Grid destGrid = gridManager.getGrid(playerStatus.getPlayerPositionX(), playerStatus.getPlayerPositionY());
             if (destGrid.isWalkable)
             {
                 // transform.position = destGrid.getPositionV3();
