@@ -28,6 +28,7 @@ public class GridsController : MonoBehaviour {
                 float x = ((gridNumberX - 1) * 0.5f - j) * gridWidth;               
                 Vector3 position = new Vector3(x, y, 0);
                 Grid gridInstance = (Grid)Instantiate(grid, position, Quaternion.identity);
+                gridInstance.setPosition(position);
                 grids[i, j] = gridInstance;
                 gridInstance.transform.SetParent(transform, false);
             }
@@ -35,17 +36,17 @@ public class GridsController : MonoBehaviour {
     }
 	
     // get grid based on its idex
-    Grid getGrid(int x, int y)
+    public Grid getGrid(int x, int y)
     {
         return grids[x, y];
     }
 
-    float getGridHeight()
+    public float getGridHeight()
     {
         return gridHeight;
     }
 
-    float getGridWidth()
+    public float getGridWidth()
     {
         return gridWidth;
     }

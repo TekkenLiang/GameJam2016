@@ -6,19 +6,24 @@ public class Grid : MonoBehaviour {
     // public variable defines
     public float height;
     public float width;
-    private Vector2 position;
+    protected Vector3 position;
 
 	// Use this for initialization
 	void Start () {
         
 	}
 	
-    void setPosition(Vector2 pos)
+    public void setPosition(Vector3 pos)
     {
         position = pos;
     }
 
-    Vector2 getPosition()
+    public Vector2 getPosition()
+    {
+        return new Vector2(position.x, position.y);
+    }
+
+    public Vector3 getPositionV3()
     {
         return position;
     }

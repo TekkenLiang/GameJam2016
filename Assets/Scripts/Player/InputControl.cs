@@ -5,7 +5,7 @@ using System.Collections;
 public class InputControl : MonoBehaviour {
     public enum Direction
     {
-        UP, DOWN, LEFT, RIGHT
+        UP=1, DOWN=2, LEFT=3, RIGHT=4
     }
 
     protected Player player;
@@ -18,7 +18,7 @@ public class InputControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	    switch (player.playerID) {
+	    switch (player.playerStatus.playerID) {
             case 1:
                 if (Input.GetButtonUp("Player1Up"))
                 {
@@ -32,7 +32,7 @@ public class InputControl : MonoBehaviour {
                 {
                     player.MakeMove((int)Direction.LEFT);
                 }
-                else if (Input.GetButtonUp("Player1Down"))
+                else if (Input.GetButtonUp("Player1Right"))
                 {
                     player.MakeMove((int)Direction.RIGHT);
                 }
@@ -52,7 +52,7 @@ public class InputControl : MonoBehaviour {
                 {
                     player.MakeMove((int)Direction.LEFT);
                 }
-                else if (Input.GetButtonUp("Player2Down"))
+                else if (Input.GetButtonUp("Player2Right"))
                 {
                     player.MakeMove((int)Direction.RIGHT);
                 }
