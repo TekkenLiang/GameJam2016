@@ -12,6 +12,7 @@ public class Grid : MonoBehaviour {
     public float width;
     public bool isWalkable = true;
     public int targetID = 0; // 0 means not a target, 1 means target for player1 etc.
+	public GridsController gridsController;
 
 
     [SerializeField] StoneAnimation stoneAnimation;
@@ -21,6 +22,11 @@ public class Grid : MonoBehaviour {
 	// Use this for initialization
 	void Awake () {
         
+	}
+
+	void Start()
+	{
+		gridsController = transform.parent.GetComponent<GridsController>();
 	}
 	
     public void setPosition(Vector3 pos)
@@ -67,6 +73,15 @@ public class Grid : MonoBehaviour {
 
     public void setToNormal()
     {
+		if(targetID == 1)
+		{
+			gridsController.player1CurrentTarget = null;
+		}
+		else if(targetID == 2)
+		{
+			gridsController.player2CurrentTarget = null;
+		}
+
         targetID = 0;
         isWalkable = true;
         stoneAnimation.SetStoneType(StoneType.Normal);

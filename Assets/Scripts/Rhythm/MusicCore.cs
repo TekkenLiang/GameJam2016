@@ -27,15 +27,7 @@ public class PlayerMusicData
 	public int gridY;
 
 };
-
-//public struct inputReg {
-//	public bool ready;
-//	public int stepID;
-//	public float timestamp;
-//	public int gridX;
-//	public int gridY;
-//}
-
+	
 public class MusicCore : MonoBehaviour {
 
 	//music list
@@ -106,7 +98,7 @@ public class MusicCore : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		//TODO: Remove this, and call from GameManager
-		MusicEventManager.StartGame();
+		//MusicEventManager.StartGame();
 	}
 
 	void OnGameStart()
@@ -121,6 +113,8 @@ public class MusicCore : MonoBehaviour {
 
 		StartCoroutine(playPlayer1);
 		StartCoroutine(playPlayer2);
+
+		musicOn(0);
 
 		//StopCoroutine()
 	}

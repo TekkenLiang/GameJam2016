@@ -39,7 +39,8 @@ public class GameLoop : MonoBehaviour {
         grids.SetTargetForPlayer(2, 4, 2);
 
 		//start music core	(music and rhythm control)
-		startMusicCore(0);
+		//startMusicCore(0);
+		MusicEventManager.StartGame();
 
 		//spawn player
 		setupPlayers();

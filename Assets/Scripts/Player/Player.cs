@@ -157,11 +157,10 @@ public class Player : MonoBehaviour {
 				}
 
 				//TODO Level up
-				MusicEventManager.MoveToNextLevel((PlayerID)(playerStatus.playerID -1));
-
 				if (destGrid.targetID == playerStatus.playerID)
 				{   // Reach the current target, do some update 
-
+					MusicEventManager.MoveToNextLevel((PlayerID)(playerStatus.playerID -1));
+					destGrid.setToNormal();
 				}
 			}
 			//TODO:	what if not??
