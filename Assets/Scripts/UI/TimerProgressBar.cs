@@ -7,15 +7,19 @@ public class TimerProgressBar : MonoBehaviour {
     private float progress;
     private GameObject gameLogicObj;
     private GameLoop gameLoop;
-    private Vector2 fullTimerBarSize;
-    private Vector2 emptyTimerBarSize;
+    //private Vector2 fullTimerBarSize;
+    //private Vector2 emptyTimerBarSize;
+    private float screenWidth;
+    private float screenHeight;
+    private Vector2 fullBarstartPos;
+    private Vector2 emptyBarstartPos;
 
-    public Vector2 fullBarstartPos;
-    public Vector2 emptyBarstartPos;
     public Vector2 fullBarSize;
     public Vector2 emptyBarSize;
     public Texture2D fullTimerBar;
     public Texture2D emptyTimerBar;
+    public float fullBarHeightRatio = 0.056f;
+    public float emptyBarHeightRatio = 0.05f; 
 
 	// Use this for initialization
 	void Start () {
@@ -29,9 +33,14 @@ public class TimerProgressBar : MonoBehaviour {
             timeLimit = gameLoop.timeLimit;
             passedTime = 0.0f;
         }
+        // get screen resolution
+        
+        screenWidth = Screen.width;
+        screenHeight = Screen.height;
+        
+        fullBarstartPos = new Vector2((screenWidth - fullBarSize.x) / 2, fullBarHeightRatio * screenHeight);
 
-        fullTimerBarSize = fullTimerBar.texelSize;
-        emptyTimerBarSize = emptyTimerBar.texelSize;
+        emptyBarstartPos = new Vector2((screenWidth - emptyBarSize.x) / 2, emptyBarHeightRatio * screenHeight);
     }
 
     void OnGUI()
