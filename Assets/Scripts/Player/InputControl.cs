@@ -22,19 +22,19 @@ public class InputControl : MonoBehaviour {
             case 1:
                 if (Input.GetButtonUp("Player1Up"))
                 {
-                    player.MakeMove((int)Direction.UP);
+				player.move((int)Direction.UP);
                 }
                 else if (Input.GetButtonUp("Player1Down"))
                 {
-                    player.MakeMove((int)Direction.DOWN);
+				player.move((int)Direction.DOWN);
                 }
                 else if (Input.GetButtonUp("Player1Left"))
                 {
-                    player.MakeMove((int)Direction.LEFT);
+				player.move((int)Direction.LEFT);
                 }
                 else if (Input.GetButtonUp("Player1Right"))
                 {
-                    player.MakeMove((int)Direction.RIGHT);
+				player.move((int)Direction.RIGHT);
                 }
                 break;
 
@@ -42,19 +42,19 @@ public class InputControl : MonoBehaviour {
             case 2: 
                 if (Input.GetButtonUp("Player2Up"))
                 {
-                    player.MakeMove((int)Direction.UP);
+				player.move((int)Direction.UP);
                 }
                 else if (Input.GetButtonUp("Player2Down"))
                 {
-                    player.MakeMove((int)Direction.DOWN);
+				player.move((int)Direction.DOWN);
                 }
                 else if (Input.GetButtonUp("Player2Left"))
                 {
-                    player.MakeMove((int)Direction.LEFT);
+				player.move((int)Direction.LEFT);
                 }
                 else if (Input.GetButtonUp("Player2Right"))
                 {
-                    player.MakeMove((int)Direction.RIGHT);
+				player.move((int)Direction.RIGHT);
                 }
                 break;
 

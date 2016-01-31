@@ -38,11 +38,13 @@ public class GameLoop : MonoBehaviour {
         grids.SetTargetForPlayer(1, 1, 2);
         grids.SetTargetForPlayer(2, 4, 2);
 
+		//start music core	(music and rhythm control)
+		startMusicCore(0);
+
 		//spawn player
 		setupPlayers();
 
-		//start music core	(music and rhythm control)
-		startMusicCore(0);
+
 	}
 
 	void setupPlayers()
@@ -55,7 +57,7 @@ public class GameLoop : MonoBehaviour {
 		PlayerStatus PS1 = player1.GetComponent<PlayerStatus>();
 		PS1.setupPlayerStatus(1 ,totalTask);
         PS1.setPlayerPosition((int)player1Pos.x, (int)player1Pos.y);
-
+		musicCore.player1Player = player1.GetComponent<Player>();
 		tempoHinters[0].GetComponent<TempoHinter>().player = player1;
 
         player2 = (GameObject)Instantiate(playerPrefab2, grids.getGrid((int)player2Pos.x, (int)player2Pos.y).getPositionV3(), transform.rotation);
@@ -65,7 +67,7 @@ public class GameLoop : MonoBehaviour {
 		PlayerStatus PS2 = player2.GetComponent<PlayerStatus>();
 		PS2.setupPlayerStatus(2 ,totalTask);
         PS2.setPlayerPosition((int)player2Pos.x, (int)player2Pos.y);
-
+		musicCore.player2Player = player2.GetComponent<Player>();
 		tempoHinters[1].GetComponent<TempoHinter>().player = player2;
 	}
 

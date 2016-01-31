@@ -48,8 +48,8 @@ public class MusicCore : MonoBehaviour {
 	public float maxAllowedDiff = 0.55f;
 
 
-//	public inputReg player1Reg;
-//	public inputReg player2Reg;
+	public Player player1Player;
+	public Player player2Player;
 
 
 
@@ -333,15 +333,19 @@ public class MusicCore : MonoBehaviour {
 			if(Player1Data.timestamp < Player2Data.timestamp)
 			{
 				//player 1 win
+				player1Player.MakeMove();
 			}
 			else
 			{
 				//player 2 win
+				player2Player.MakeMove();
 			}
 		}
 		else
 		{
 			//both can go
+			player1Player.MakeMove();
+			player2Player.MakeMove();
 		}
 
 		resolvedStepID += 1;
