@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using DG.Tweening;
 
@@ -13,6 +13,9 @@ public class Player : MonoBehaviour {
 
     [SerializeField] float jumpPrepareTime = 0.25f;
     [SerializeField] float jumpTime = 0.5f;
+    
+	public GameObject tempoIndicatorPrefab;
+	public GameObject tempoIndicator;
 
     [SerializeField] Vector3 initOffset = new Vector3(0,3f,0);
 
@@ -76,7 +79,7 @@ public class Player : MonoBehaviour {
         Grid temGrid = grids.getGrid(playerStatus.getPlayerPositionX(), playerStatus.getPlayerPositionY());
         
         // Check timing, pass the intention to a resolve class
-        // if (musicCore.regPlayerInput(playerStatus.playerID, destX, destY))
+        if (musicCore.regPlayerInput(playerStatus.playerID, destX, destY))
         if (true)
         {
             Debug.Log("Move succeeded!");
