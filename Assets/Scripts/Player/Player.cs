@@ -3,9 +3,8 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 
-    //public int playerID;
-    //public int getPlayerID() { return m_playerID; }
     public GridsController grids;
+    public MusicCore musicCore;
     public PlayerStatus playerStatus;
 
 	// Use this for initialization
@@ -39,12 +38,15 @@ public class Player : MonoBehaviour {
                 destX -= 1;
                 break;
         }
+        
+        // Check timing, pass the intention to a resolve class
+        if (musicCore.regPlayerInput(playerStatus.playerID, destX, destY))
+        {
+            Debug.Log("Move succeeded!");
+            playerStatus.setPlayerPosition(destX, destY);
+            transform.position = grids.getGrid(playerStatus.getPlayerPositionX(), playerStatus.getPlayerPositionY()).getPositionV3();
+        }
 
-        playerStatus.setPlayerPosition(destX, destY);
-        transform.position = grids.getGrid(playerStatus.getPlayerPositionX(), playerStatus.getPlayerPositionY()).getPositionV3();
-
-        // check timing
-        // pass the intention to a resolve class
         
 
         return true;

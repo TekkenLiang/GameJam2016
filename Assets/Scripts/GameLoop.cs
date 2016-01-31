@@ -46,6 +46,7 @@ public class GameLoop : MonoBehaviour {
 		player1 = (GameObject) Instantiate(playerPrefab, grids.getGrid((int)player1Pos.x, (int)player1Pos.y).getPositionV3(), transform.rotation);
 		player1.name = "Player 1";
         player1.GetComponent<Player>().grids = grids;
+        player1.GetComponent<Player>().musicCore = musicCore;
 		PlayerStatus PS1 = player1.GetComponent<PlayerStatus>();
 		PS1.setupPlayerStatus(1 ,totalTask);
         PS1.setPlayerPosition((int)player1Pos.x, (int)player1Pos.y);
@@ -53,6 +54,7 @@ public class GameLoop : MonoBehaviour {
         player2 = (GameObject)Instantiate(playerPrefab, grids.getGrid((int)player2Pos.x, (int)player2Pos.y).getPositionV3(), transform.rotation);
         player2.name = "Player 2";
         player2.GetComponent<Player>().grids = grids;
+        player2.GetComponent<Player>().musicCore = musicCore;
 		PlayerStatus PS2 = player2.GetComponent<PlayerStatus>();
 		PS2.setupPlayerStatus(2 ,totalTask);
         PS2.setPlayerPosition((int)player2Pos.x, (int)player2Pos.y);
@@ -93,7 +95,7 @@ public class GameLoop : MonoBehaviour {
         if (gameTimer < 0)
 		{
 			endgame();
-            //timer = timeLimit;
+            gameTimer = timeLimit;
 		}
 	}
 }
