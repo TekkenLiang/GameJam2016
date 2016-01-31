@@ -55,10 +55,15 @@ public class MusicCore : MonoBehaviour {
 
 		public float StartTime;
 		public float StopTime;
+        
+        public bool ready;
+        public int stepID;
+        public float timestamp;
+        public int gridX;
+        public int gridY;
 
 	};
-
-
+    
 	[SerializeField]
 	private bool isOn;
 
@@ -94,11 +99,6 @@ public class MusicCore : MonoBehaviour {
 		playPlayer1 = PlayPlayerMusic(PlayerID.PLAYER1);
 		playPlayer2 = PlayPlayerMusic(PlayerID.PLAYER2);
 	}
-
-
-
-
-
 
 
 
