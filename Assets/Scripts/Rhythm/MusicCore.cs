@@ -113,7 +113,7 @@ public class MusicCore : MonoBehaviour {
 		{
 			if(player1Reg.ready)
 			{
-				return regPlayerInput(player1Reg,gridX,gridY);
+				return regPlayerInputCheckTime(player1Reg,gridX,gridY);
 			}
 			else
 			{
@@ -124,7 +124,7 @@ public class MusicCore : MonoBehaviour {
 		{
 			if(player2Reg.ready)
 			{
-				return regPlayerInput(player2Reg,gridX,gridY);
+				return regPlayerInputCheckTime(player2Reg,gridX,gridY);
 			}
 			else
 			{
@@ -136,7 +136,7 @@ public class MusicCore : MonoBehaviour {
 
 
 	//inputReg reg
-	bool regPlayerInput(inputReg reg, int gridX, int gridY)
+	bool regPlayerInputCheckTime(inputReg reg, int gridX, int gridY)
 	{
 		if(tempoInterval - timer <= maxAllowedDiff)	//early
 		{
