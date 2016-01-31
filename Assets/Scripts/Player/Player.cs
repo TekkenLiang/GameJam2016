@@ -7,14 +7,27 @@ public class Player : MonoBehaviour {
     public MusicCore musicCore;
     public PlayerStatus playerStatus;
 
+    bool hasMissed;
+    float missedTimer;
+
 	// Use this for initialization
 	void Start () {
         playerStatus = GetComponent<PlayerStatus>();
+        hasMissed = false;
+        //missedTimer = musicCore.tempoInterval;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+        if (hasMissed)
+        {
+            missedTimer -= Time.deltaTime;
+            if (missedTimer < 0)
+            {
+                hasMissed = false;
+                GetComponent<SpriteRenderer>().color = Color.white;
+            }
+        }
 	}
 
     public bool MakeMove (int direction)
@@ -52,15 +65,17 @@ public class Player : MonoBehaviour {
                 {   // Reach the current target, do some update 
 
                 }
+                return true;
             }
         }
         else
-        {   // Press the key in a bad timing, show some feedback effect
+        {   
+            // Press the key in a bad timing, show some feedback effect
+            GetComponent<SpriteRenderer>().color = Color.red;
+            hasMissed = true;
+            missedTimer = musicCore.tempoInterval / 2.0f;
+        }        
 
-        }
-
-        
-
-        return true;
+        return false;
     }
 }
