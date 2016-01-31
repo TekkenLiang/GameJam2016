@@ -2,9 +2,11 @@
 using System.Collections;
 
 public struct inputReg {
+	public bool ready;
+	public int stepID;
 	public float timestamp;
-	int gridX;
-	int gridY;
+	public int gridX;
+	public int gridY;
 }
 
 
@@ -20,6 +22,8 @@ public class MusicCore : MonoBehaviour {
 	public float maxAllowedDiff = 0.55f;
 
 
+	public inputReg player1Reg;
+	public inputReg player2Reg;
 
 
 	[SerializeField]
@@ -59,7 +63,7 @@ public class MusicCore : MonoBehaviour {
 	{
 		if(isOn)
 		{
-			timer += Time.fixedDeltaTime;
+			timer += Time.deltaTime;
 			if(timer > tempoInterval)	//reset timer
 			{
 				currentStepID += 1;
@@ -97,35 +101,77 @@ public class MusicCore : MonoBehaviour {
 		resolvedStepID = 0;
 		regNum = 0;
 
-
-		Debug.Log(isOn);
 		isOn = true;
-		Debug.Log(isOn);
 	}
+
+
+
 
 	public bool regPlayerInput(int playerID, int gridX, int gridY)
 	{
+		if(playerID == 1)
+		{
+			if(player1Reg.ready)
+			{
+				return regPlayerInput(player1Reg,gridX,gridY);
+			}
+			else
+			{
+				return false;	//not ready
+			}
+		}
+		else
+		{
+			if(player2Reg.ready)
+			{
+				return regPlayerInput(player2Reg,gridX,gridY);
+			}
+			else
+			{
+				return false;	//not ready
+			}
+		}
+	}
 
+
+
+	//inputReg reg
+	bool regPlayerInput(inputReg reg, int gridX, int gridY)
+	{
 		if(tempoInterval - timer <= maxAllowedDiff)	//early
 		{
-			playerRegTime[playerID - 1] = tempoInterval - timer;
 			regNum += 1;
+			regInputToStruct(reg, tempoInterval - timer, resolvedStepID + 1, gridX, gridY);
 			return true;
 		}
 		else if(timer <= maxAllowedDiff)	//late
 		{
-			playerRegTime[playerID - 1] = tempoInterval - timer;
 			regNum += 1;
+			regInputToStruct(reg, tempoInterval - timer, resolvedStepID + 1, gridX, gridY);
 			return true;
 		}
-		else
+		else	//bad timing
 		{
-			return false;	//bad timing
+			regNum += 1;
+			regInputToStruct(reg, tempoInterval, resolvedStepID + 1, gridX, gridY);	//reg to some value always lose in conflict
+			return false;
 		}
 	}
 
+	void regInputToStruct(inputReg reg, float timestamp, int stepID, int gridX, int gridY)
+	{
+		reg.timestamp = timestamp;
+		reg.stepID = stepID;
+		reg.gridX = gridX;
+		reg.gridY = gridY;
+		reg.ready = false;
+	}
+		
 	void resolve()
 	{
+		player1Reg.ready = true;
+		player2Reg.ready = true;
+
 		resolvedStepID += 1;
 		regNum = 0;
 	}
