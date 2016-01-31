@@ -39,7 +39,16 @@ public class GridsController : MonoBehaviour {
     // get grid based on its idex
     public Grid getGrid(int x, int y)
     {
-        return grids[x, y];
+        if (x >= 0 && x < gridNumberX && y >= 0 && y < gridNumberY)
+        {
+            return grids[x, y];
+        }
+        else
+        {
+            Debug.Log("Array Index Out Of Range!");
+        }
+
+        return grids[0, 0];
     }
 
     public float getGridHeight()
