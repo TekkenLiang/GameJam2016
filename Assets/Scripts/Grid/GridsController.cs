@@ -6,8 +6,6 @@ public class GridsController : MonoBehaviour {
     // public variable defines
     public int gridNumberX;
     public int gridNumberY;
-    public int height;
-    public int width;
     public GameObject gridObject; // grid prefab
 
     // private variable defines   
@@ -25,10 +23,10 @@ public class GridsController : MonoBehaviour {
         // spawn grids
         for(int i = 0; i < gridNumberY; ++i)
         {
-            float y = (i + 0.5f) * gridHeight;
+            float y = ((gridNumberY - 1) * 0.5f - i) * gridHeight;
             for (int j = 0; j < gridNumberX; ++j)
             {
-                float x = (j + 0.5f) * gridWidth;               
+                float x = ((gridNumberX - 1) * 0.5f - j) * gridWidth;               
                 Vector3 position = new Vector3(x, y, 0);
                 Instantiate(grid, position, Quaternion.identity);
             }
