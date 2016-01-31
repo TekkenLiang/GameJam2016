@@ -10,6 +10,8 @@ public class GameLoop : MonoBehaviour {
 
 	public int totalTask = 5;
 
+	public GameObject[] tempoHinters;
+
 	//Players
 	public GameObject playerPrefab1;
 	public GameObject player1;
@@ -54,6 +56,8 @@ public class GameLoop : MonoBehaviour {
 		PS1.setupPlayerStatus(1 ,totalTask);
         PS1.setPlayerPosition((int)player1Pos.x, (int)player1Pos.y);
 
+		tempoHinters[0].GetComponent<TempoHinter>().player = player1;
+
         player2 = (GameObject)Instantiate(playerPrefab2, grids.getGrid((int)player2Pos.x, (int)player2Pos.y).getPositionV3(), transform.rotation);
         player2.name = "Player 2";
         player2.GetComponent<Player>().grids = grids;
@@ -61,6 +65,8 @@ public class GameLoop : MonoBehaviour {
 		PlayerStatus PS2 = player2.GetComponent<PlayerStatus>();
 		PS2.setupPlayerStatus(2 ,totalTask);
         PS2.setPlayerPosition((int)player2Pos.x, (int)player2Pos.y);
+
+		tempoHinters[1].GetComponent<TempoHinter>().player = player2;
 	}
 
 	void endgame()
