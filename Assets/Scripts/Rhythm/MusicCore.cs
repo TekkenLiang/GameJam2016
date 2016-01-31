@@ -95,6 +95,8 @@ public class MusicCore : MonoBehaviour {
 
 	void Awake()
 	{
+		isOn = false;
+
 		playPlayer1 = PlayPlayerMusic(PlayerID.PLAYER1);
 		playPlayer2 = PlayPlayerMusic(PlayerID.PLAYER2);
 	}
@@ -109,8 +111,6 @@ public class MusicCore : MonoBehaviour {
 
 	void OnGameStart()
 	{
-		isOn = false;
-
 		if (BackgroundSource != null)
 		{
 			BackgroundSource.Play();
