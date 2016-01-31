@@ -1,12 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: 78df188fe8ef545319e41b595ce8a85c
-timeCreated: 1454225600
-=======
-guid: 8c1b49afa4f0a4e3384f8194ba14a954
-timeCreated: 1454226898
->>>>>>> ccac2fd02afbbd912363588fef54dd62f82478f2
-licenseType: Free
 PluginImporter:
   serializedVersion: 1
   iconMap: {}
@@ -20,13 +13,10 @@ PluginImporter:
       enabled: 1
       settings:
         DefaultValueInitialized: true
-<<<<<<< HEAD
     WindowsStoreApps:
       enabled: 0
       settings:
         CPU: AnyCPU
-=======
->>>>>>> ccac2fd02afbbd912363588fef54dd62f82478f2
   userData: 
   assetBundleName: 
   assetBundleVariant: 

@@ -1,11 +1,6 @@
 fileFormatVersion: 2
-<<<<<<< Updated upstream
 guid: 9c3a38668c5ec47c0baddcab625281c7
-timeCreated: 1454226522
-=======
-guid: 526e7a69552b24c839ef0be5d4677f9d
-timeCreated: 1454226902
->>>>>>> Stashed changes
+timeCreated: 1454236677
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName: {}
@@ -22,32 +17,20 @@ TextureImporter:
   bumpmap:
     convertToNormalMap: 0
     externalNormalMap: 0
-<<<<<<< Updated upstream
     heightScale: 0.25
-=======
-    heightScale: .25
->>>>>>> Stashed changes
     normalMapFilter: 0
   isReadable: 0
   grayScaleToAlpha: 0
   generateCubemap: 0
   cubemapConvolution: 0
-<<<<<<< Updated upstream
   cubemapConvolutionSteps: 7
-=======
-  cubemapConvolutionSteps: 8
->>>>>>> Stashed changes
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -1
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-<<<<<<< Updated upstream
     aniso: 16
-=======
-    aniso: -1
->>>>>>> Stashed changes
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -58,13 +41,8 @@ TextureImporter:
   spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-<<<<<<< Updated upstream
   alignment: 9
-  spritePivot: {x: 0.70584327, y: 0.84648347}
-=======
-  alignment: 0
-  spritePivot: {x: .5, y: .5}
->>>>>>> Stashed changes
+  spritePivot: {x: 0.7390438, y: 0.8863925}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
@@ -72,10 +50,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites: []
-<<<<<<< Updated upstream
     outline: []
-=======
->>>>>>> Stashed changes
   spritePackingTag: 
   userData: 
   assetBundleName: 
