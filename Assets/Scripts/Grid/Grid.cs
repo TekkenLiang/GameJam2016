@@ -6,21 +6,21 @@ public class Grid : MonoBehaviour {
     // public variable defines
     public float height;
     public float width;
+    private Vector2 position;
 
 	// Use this for initialization
 	void Start () {
-	
+        
 	}
 	
-    public void setHeight(float newHeight)
+    void setPosition(Vector2 pos)
     {
-        height = newHeight;
-        transform.localScale.Set(transform.localScale.x, height, transform.localScale.z);
+        position = pos;
     }
 
-    public void setWidth(float newWidth)
+    Vector2 getPosition()
     {
-        width = newWidth;
+        return position;
     }
 	// Update is called once per frame
 	void Update () {
