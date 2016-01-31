@@ -7,6 +7,9 @@ public class Player : MonoBehaviour {
     public MusicCore musicCore;
     public PlayerStatus playerStatus;
 
+	public GameObject tempoIndicatorPrefab;
+	public GameObject tempoIndicator;
+
     bool hasMissed;
     float missedTimer;
 
@@ -15,6 +18,9 @@ public class Player : MonoBehaviour {
         playerStatus = GetComponent<PlayerStatus>();
         hasMissed = false;
         //missedTimer = musicCore.tempoInterval;
+
+		//GameObject tempoIndicator = Instantiate(tempoIndicatorPrefab);
+		//tempoIndicator.GetComponent<TempoHinter>().player = transform.parent;
 	}
 	
 	// Update is called once per frame
