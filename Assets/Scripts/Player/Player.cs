@@ -3,19 +3,31 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 
-    //public int playerID;
-    //public int getPlayerID() { return m_playerID; }
     public GridsController grids;
+    public MusicCore musicCore;
     public PlayerStatus playerStatus;
+
+    bool hasMissed;
+    float missedTimer;
 
 	// Use this for initialization
 	void Start () {
         playerStatus = GetComponent<PlayerStatus>();
+        hasMissed = false;
+        //missedTimer = musicCore.tempoInterval;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+        if (hasMissed)
+        {
+            missedTimer -= Time.deltaTime;
+            if (missedTimer < 0)
+            {
+                hasMissed = false;
+                GetComponent<SpriteRenderer>().color = Color.white;
+            }
+        }
 	}
 
     public bool MakeMove (int direction)
@@ -39,14 +51,31 @@ public class Player : MonoBehaviour {
                 destX -= 1;
                 break;
         }
-
-        playerStatus.setPlayerPosition(destX, destY);
-        transform.position = grids.getGrid(playerStatus.getPlayerPositionX(), playerStatus.getPlayerPositionY()).getPositionV3();
-
-        // check timing
-        // pass the intention to a resolve class
         
+        // Check timing, pass the intention to a resolve class
+        if (musicCore.regPlayerInput(playerStatus.playerID, destX, destY))
+        {
+            Debug.Log("Move succeeded!");
+            playerStatus.setPlayerPosition(destX, destY);
+            Grid destGrid = grids.getGrid(playerStatus.getPlayerPositionX(), playerStatus.getPlayerPositionY());
+            if (destGrid.isWalkable)
+            {
+                transform.position = destGrid.getPositionV3();
+                if (destGrid.targetID == playerStatus.playerID)
+                {   // Reach the current target, do some update 
 
-        return true;
+                }
+                return true;
+            }
+        }
+        else
+        {   
+            // Press the key in a bad timing, show some feedback effect
+            GetComponent<SpriteRenderer>().color = Color.red;
+            hasMissed = true;
+            missedTimer = musicCore.tempoInterval / 2.0f;
+        }        
+
+        return false;
     }
 }
