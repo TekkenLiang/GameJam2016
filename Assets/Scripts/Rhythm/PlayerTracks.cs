@@ -37,7 +37,7 @@ public class PlayerTracks : MonoBehaviour {
 	{
 		if (index < 0 || index >= TrackListLength)
 		{
-			Debug.LogError("Invalid index for Clip Requested");
+			Debug.LogWarning("Invalid index for Clip Requested");
 			return null;
 		}
 
@@ -48,7 +48,7 @@ public class PlayerTracks : MonoBehaviour {
 	{
 		if (index < 0 || index >= TrackListLength)
 		{
-			Debug.LogError("Invalid index for Clip Requested");
+			Debug.LogWarning("Invalid index for Clip Requested");
 			return -1;
 		}
 
@@ -59,7 +59,7 @@ public class PlayerTracks : MonoBehaviour {
 	{
 		if (index < 0 || index >= TrackListLength)
 		{
-			Debug.LogError("Invalid index for Clip Requested");
+			Debug.LogWarning("Invalid index for Clip Requested");
 			return -1;
 		}
 
@@ -70,7 +70,7 @@ public class PlayerTracks : MonoBehaviour {
 	{
 		if (index < 0 || index >= TrackListLength)
 		{
-			Debug.LogError("Invalid index for Clip Requested");
+			Debug.LogWarning("Invalid index for Clip Requested");
 			return -1;
 		}
 
@@ -81,7 +81,7 @@ public class PlayerTracks : MonoBehaviour {
 	{
 		if (index < 0 || index >= TrackListLength)
 		{
-			Debug.LogError("Invalid index for Clip Requested");
+			Debug.LogWarning("Invalid index for Clip Requested");
 			return -1;
 		}
 
