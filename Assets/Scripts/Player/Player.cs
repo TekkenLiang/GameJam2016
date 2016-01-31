@@ -29,13 +29,16 @@ public class Player : MonoBehaviour {
 	int currentDirection;
 	Grid curGrid;
 
-	// Use this for initialization
-	void Start () {
+    private GameLoop gameLoop;
+
+    // Use this for initialization
+    void Start () {
         playerStatus = GetComponent<PlayerStatus>();
         playerStatus.player = this;
         hasMissed = false;
         //missedTimer = musicCore.tempoInterval;
-	}
+        gameLoop = GameObject.Find("GameLogic").GetComponent<GameLoop>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -88,10 +91,23 @@ public class Player : MonoBehaviour {
 		curGrid = gridManager.getGrid(playerStatus.getPlayerPositionX(), playerStatus.getPlayerPositionY());
         curGrid.Move(); // show the intention to move 
 
-		if((destX >= 0 && destY >= 0
+        
+
+        if ((destX >= 0 && destY >= 0
 			&& destX < gridManager.gridNumberX && destY < gridManager.gridNumberY))
 		{
-			if (musicCore.regPlayerInput(playerStatus.playerID, destX, destY))
+            // Check if player cross each other
+            bool isCross = false;
+            for (int i = 0; i < 2; ++i)
+            {
+                PlayerStatus status = gameLoop.playersStatus[i];
+                if (status && (status.playerID != playerStatus.playerID) && (status.getPlayerPositionX() == destX && status.getPlayerPositionY() == destY))
+                {
+                    isCross = true;
+                }
+            }
+
+            if (musicCore.regPlayerInput(playerStatus.playerID, destX, destY) && !isCross)
 			{
 				Debug.Log(playerStatus.playerID + " Move registered!");
 				regGood = true;

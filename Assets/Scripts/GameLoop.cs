@@ -25,9 +25,10 @@ public class GameLoop : MonoBehaviour {
 
 	public MusicCore musicCore;
 
+    public PlayerStatus[] playersStatus;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 
 		//initialize data
 		gameTimer = timeLimit;
@@ -42,8 +43,9 @@ public class GameLoop : MonoBehaviour {
 		//startMusicCore(0);
 		MusicEventManager.StartGame();
 
-		//spawn player
-		setupPlayers();
+        playersStatus = new PlayerStatus[2];
+        //spawn player
+        setupPlayers();
 
 
 	}
@@ -61,6 +63,9 @@ public class GameLoop : MonoBehaviour {
 		musicCore.player1Player = player1.GetComponent<Player>();
 		tempoHinters[0].GetComponent<TempoHinter>().player = player1;
 
+        playersStatus[0] = PS1;
+
+
         player2 = (GameObject)Instantiate(playerPrefab2, grids.getGrid((int)player2Pos.x, (int)player2Pos.y).getPositionV3(), transform.rotation);
         player2.name = "Player 2";
         player2.GetComponent<Player>().gridManager = grids;
@@ -70,9 +75,12 @@ public class GameLoop : MonoBehaviour {
         PS2.setPlayerPosition((int)player2Pos.x, (int)player2Pos.y);
 		musicCore.player2Player = player2.GetComponent<Player>();
 		tempoHinters[1].GetComponent<TempoHinter>().player = player2;
-	}
 
-	void endgame()
+        playersStatus[1] = PS2;
+
+    }
+
+    void endgame()
 	{
 		Debug.Log("GAME END");
 		//play sound
