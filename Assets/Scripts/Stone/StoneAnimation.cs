@@ -41,8 +41,7 @@ public class StoneAnimation : MonoBehaviour {
 
 	void OnGameEnd()
 	{
-		Debug.Log("OnGameEnd");
-		if (myType==StoneType.Normal)
+		if (myType == StoneType.Normal)
 			MoveOut();
 	}
 
@@ -178,6 +177,8 @@ public class StoneAnimation : MonoBehaviour {
 				//do nothing
 				break;
 		}
+
+		myType = type;
 	}
 
 
