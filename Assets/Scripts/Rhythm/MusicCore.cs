@@ -43,7 +43,7 @@ public class MusicCore : MonoBehaviour {
 	public Player player1Player;
 	public Player player2Player;
 
-
+    public GameLoop gameLoop;
 
 	public float timer = 0;
 	[SerializeField]
@@ -229,7 +229,8 @@ public class MusicCore : MonoBehaviour {
 
 		int maxAudioID = playerData.TrackScript.TrackListLength - 1;
 
-		while (playerData.currentLevel < MaxLevel)
+		//while (playerData.currentLevel < MaxLevel)
+        while (gameLoop.gameTimer > 0)
 		{// Loop will run from Start of Track to End of Track.
 			if (playerData.audioID > maxAudioID)
 				break;
@@ -262,7 +263,7 @@ public class MusicCore : MonoBehaviour {
 			for (int i=0; i<numberOfBeats; ++i)
 			{
 				float actualStartTime = (i*beatDuration) + startTime;
-				if (currentAudioID != playerData.audioID || playerData.currentLevel >= MaxLevel)
+				if (currentAudioID != playerData.audioID || gameLoop.gameTimer < 0)//playerData.currentLevel >= MaxLevel)
 				{
 					bContinue = true;
 					break;
