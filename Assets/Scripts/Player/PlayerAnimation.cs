@@ -18,11 +18,11 @@ public class PlayerAnimation : MonoBehaviour {
 
 	int patternIndex = 0;
 	[SerializeField] float patternFadeInTime = 1f;
-	void UpgradePattern()
+	public void UpgradePattern()
 	{
 		if (patternIndex < patterns.Length-1)
 		{
-			patterns[patternIndex].DOFade(1f, patternFadeInTime);
+			patterns[patternIndex++].DOFade(1f, patternFadeInTime);
 		}
 	}
 

@@ -161,6 +161,8 @@ public class Player : MonoBehaviour {
 				{   // Reach the current target, do some update 
 					MusicEventManager.MoveToNextLevel((PlayerID)(playerStatus.playerID -1));
 					destGrid.setToNormal();
+                    if (Random.Range(0, 1f) > 0.5f )
+                        playerAnimation.UpgradePattern();
 				}
 			}
 			//TODO:	what if not??
