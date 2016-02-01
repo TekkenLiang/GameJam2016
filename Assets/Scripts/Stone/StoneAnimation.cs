@@ -29,6 +29,23 @@ public class StoneAnimation : MonoBehaviour {
 
 
 
+	void OnEnable()
+	{
+		MusicEventManager.GameEnd += OnGameEnd;
+	}
+
+	void OnDisable()
+	{
+		MusicEventManager.GameEnd -= OnGameEnd;
+	}
+
+	void OnGameEnd()
+	{
+		Debug.Log("OnGameEnd");
+		if (myType==StoneType.Normal)
+			MoveOut();
+	}
+
 	void Awake()
 	{
 		foreach(SpriteRenderer shadow in shadowList)
@@ -44,8 +61,14 @@ public class StoneAnimation : MonoBehaviour {
 
 	void Update()
 	{
-		if (Input.GetKey(KeyCode.G))
+		if (Input.GetKey(KeyCode.G) && Input.GetKey(KeyCode.LeftCommand))
 			Glow();
+
+
+		if(Input.GetKeyDown(KeyCode.E) && Input.GetKey(KeyCode.LeftCommand))
+		{
+			MoveOut();
+		}
 	}
 
 
@@ -164,24 +187,24 @@ public class StoneAnimation : MonoBehaviour {
 	}
 	void SwitchTypeAnimation()
 	{
-		stone.transform.DOLocalMoveY(16f , ChangeTypeTime / 2f )
+		stone.transform.DOLocalMoveY(25f , ChangeTypeTime / 2f )
 		.SetRelative(true)
 		.SetEase(Ease.InCirc)
 		.OnComplete(SetStoneTypeByTo);
 
 
-		stone.transform.DOLocalMoveY(-16f , ChangeTypeTime / 2f )
+		stone.transform.DOLocalMoveY(-25f , ChangeTypeTime / 2f )
 		.SetRelative(true)
 		.SetEase(Ease.OutCirc)
 		.SetDelay(ChangeTypeTime/2f);
 
 
-		shadow.transform.DOLocalMoveY(-16f , ChangeTypeTime / 2f )
+		shadow.transform.DOLocalMoveY(-25f , ChangeTypeTime / 2f )
 		.SetRelative(true)
 		.SetEase(Ease.InCirc);
 
 
-		shadow.transform.DOLocalMoveY(16f , ChangeTypeTime / 2f )
+		shadow.transform.DOLocalMoveY(25f , ChangeTypeTime / 2f )
 		.SetRelative(true)
 		.SetEase(Ease.OutCirc)
 		.SetDelay(ChangeTypeTime/2f);
@@ -227,4 +250,27 @@ public class StoneAnimation : MonoBehaviour {
 
 			myIfBig = ifBig;
 	}
+
+	public void MoveOut()
+	{
+		float delay = Random.Range(0, 1f);
+
+		stone.transform.DOLocalMoveY(25f , ChangeTypeTime / 2f )
+		.SetRelative(true)
+		.SetEase(Ease.InCirc)
+		.SetDelay(delay);
+
+
+		shadow.transform.DOLocalMoveY(-25f , ChangeTypeTime / 2f )
+		.SetRelative(true)
+		.SetEase(Ease.InCirc)
+		.SetDelay(delay);
+
+		foreach(SpriteRenderer s in shadowList)
+		{
+			s.DOFade(0, 1f).SetDelay(delay);
+		}
+
+	}
+
 }

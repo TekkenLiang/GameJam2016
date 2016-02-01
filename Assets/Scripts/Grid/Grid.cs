@@ -54,6 +54,7 @@ public class Grid : MonoBehaviour {
     public bool setToTargetGrid(int playerID)
     {
         if (playerID <= 0) return false;
+        if (targetID > 0) return false;
 
         targetID = playerID;
         if (targetID == 1)

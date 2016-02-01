@@ -62,7 +62,11 @@ public class MusicCore : MonoBehaviour {
 	public int MaxLevel = 4;
 
 	public int BeatsPerTrack = 8;
-	private float BeatDuration = -1;
+	[SerializeField]private float BeatDuration = -1; 	// Change Duration to a Custom Value
+	public float BeatMoment = 0.0f;
+
+	public float ClickableDuration = 1.0f;
+	[SerializeField] private bool bClickable = false;
 
 	public PlayerMusicData Player1Data; 
 	public PlayerMusicData Player2Data;
@@ -121,23 +125,12 @@ public class MusicCore : MonoBehaviour {
 
 	void OnGameEnd()
 	{
+		Debug.Log("GAME END: D Style");
+
 		StopCoroutine(playPlayer1);
 		StopCoroutine(playPlayer2);
 
-		if(Player1Data.PlayerAudioSource != null)
-		{
-			Player1Data.PlayerAudioSource.Stop();
-		}
-
-		if (Player2Data.PlayerAudioSource != null)
-		{
-			Player2Data.PlayerAudioSource.Stop();
-		}
-
-		if(BackgroundSource != null)
-		{
-			BackgroundSource.Stop();
-		}
+		StartCoroutine(playEndingLoops());
 
 		//Play End Tracks
 	}
@@ -163,6 +156,64 @@ public class MusicCore : MonoBehaviour {
 
 	}
 
+	private void StartClickableTime()
+	{
+		CancelInvoke();
+
+		bClickable = true;
+
+		Invoke("StopClickableTime", ClickableDuration);
+	}
+
+	private void StopClickableTime()
+	{
+		bClickable = false;
+	}
+
+	private IEnumerator playEndingLoops()
+	{
+		float currentTrackTime = -1;
+		float endTime = -1;
+
+		if (Player1Data.PlayerAudioSource != null && currentTrackTime < 0)
+		{
+			currentTrackTime = Player1Data.PlayerAudioSource.time;
+			endTime = GetStopTime(Player1Data);
+		}
+		else if (Player2Data.PlayerAudioSource != null)
+		{
+			currentTrackTime = Player2Data.PlayerAudioSource.time;
+			endTime = GetStopTime(Player2Data);
+		}
+
+		if (currentTrackTime > 0 && endTime > 0)
+		{
+			yield return new WaitForSeconds(endTime - currentTrackTime);
+		}
+
+		//Play Last Loop for the entire Track
+
+		if(Player1Data.PlayerAudioSource != null)
+		{
+			Player1Data.PlayerAudioSource.Play();
+			Player1Data.PlayerAudioSource.loop = false;
+		}
+
+		if (Player2Data.PlayerAudioSource != null)
+		{
+			Player2Data.PlayerAudioSource.Play();
+			Player2Data.PlayerAudioSource.loop = false;
+		}
+
+		if(BackgroundSource != null)
+		{
+			BackgroundSource.Play();
+			BackgroundSource.loop = false;
+		}
+		
+		yield break;
+	}
+
 	private IEnumerator PlayPlayerMusic(PlayerID playerID)
 	{
 		PlayerMusicData playerData;
@@ -178,12 +229,14 @@ public class MusicCore : MonoBehaviour {
 
 		int maxAudioID = playerData.TrackScript.TrackListLength - 1;
 
-		while (playerData.currentLevel <= MaxLevel)
-		{
+		while (playerData.currentLevel < MaxLevel)
+		{// Loop will run from Start of Track to End of Track.
 			if (playerData.audioID > maxAudioID)
 				break;
 
 			playerData.PlayerAudioSource.clip = playerData.TrackScript.GetClip(playerData.audioID);
+
+			AudioClip nextClip = playerData.TrackScript.GetClip(playerData.audioID+1);
 
 			if (playerData.PlayerAudioSource == null)
 			{
@@ -191,12 +244,49 @@ public class MusicCore : MonoBehaviour {
 				continue;
 			}
 
-			playerData.PlayerAudioSource.Play();
-			playerData.PlayerAudioSource.time = playerData.StartTime;
+			float startTime = GetStartTime(playerData);
+			float stopTime = GetStopTime(playerData);
+			float beatDuration = (BeatDuration < 0) ? (stopTime - startTime)/BeatsPerTrack : BeatDuration;
+			bool bContinue = false;
+			int numberOfBeats = BeatsPerTrack;
 
-			yield return new WaitForSeconds(playerData.StopTime - playerData.StartTime);
+			// Start to Play current Track
+//			playerData.PlayerAudioSource.Play();
+//			playerData.PlayerAudioSource.time = playerData.StartTime;
 
-			playerData.PlayerAudioSource.Stop();
+			int currentAudioID = playerData.audioID;
+
+			timer = 0;
+			tempoInterval = beatDuration;
+
+			for (int i=0; i<numberOfBeats; ++i)
+			{
+				float actualStartTime = (i*beatDuration) + startTime;
+				if (currentAudioID != playerData.audioID || playerData.currentLevel >= MaxLevel)
+				{
+					bContinue = true;
+					break;
+				}
+
+				playerData.PlayerAudioSource.Play();
+				playerData.PlayerAudioSource.time = actualStartTime;
+
+				yield return new WaitForSeconds(beatDuration);
+
+				playerData.PlayerAudioSource.Stop();
+
+			}
+
+			if (bContinue)	// Need to change tracks, so move to next iteration of loop.
+			{
+				continue;
+			}
+
+			//yield return new WaitForSeconds(playerData.StopTime - playerData.StartTime);
+
+
+			//Stop Playing current Track
+			//playerData.PlayerAudioSource.Stop();
 		}
 
 		MusicEventManager.EndGame();
@@ -242,8 +332,8 @@ public class MusicCore : MonoBehaviour {
 	public void musicOn(int idx)
 	{
 		//setup rhytm
-		tempoInterval = tempoIntervals[idx];
-		tempoIntervalHalf = tempoInterval / 2.0f;
+		//tempoInterval = tempoIntervals[idx];
+		//tempoIntervalHalf = tempoInterval / 2.0f;
 
 		//start timer;
 		currentStepID = 1;
@@ -290,12 +380,14 @@ public class MusicCore : MonoBehaviour {
 		if(tempoInterval - timer <= maxAllowedDiff)	//early
 		{
 			regNum += 1;
+			Debug.Log("Early Click registered");
 			regInputToStruct(playerData, tempoInterval - timer, resolvedStepID + 1, gridX, gridY);
 			return true;
 		}
 		else if(timer <= maxAllowedDiff)	//late
 		{
 			regNum += 1;
+			Debug.Log("Late Click registered");
 			regInputToStruct(playerData, tempoInterval - timer, resolvedStepID + 1, gridX, gridY);
 			return true;
 		}
@@ -344,6 +436,39 @@ public class MusicCore : MonoBehaviour {
 
 		resolvedStepID += 1;
 		regNum = 0;
+	}
+		
+	/// Get StartTime of Clip.
+	float GetStartTime(PlayerMusicData playerData)
+	{
+		float result = playerData.TrackScript.GetClipStartTime(playerData.audioID);
+
+		if (result < 0.0f)
+		{
+			//Default
+			return playerData.StartTime;
+		}
+		else
+		{
+			//Clip Specific
+			return result;
+		}
+	}
+
+	float GetStopTime(PlayerMusicData playerData)
+	{
+		float result = playerData.TrackScript.GetClipStopTime(playerData.audioID);
+
+		if (result < 0.0f)
+		{
+			//Default
+			return playerData.StopTime;
+		}
+		else
+		{
+			//Clip Specific
+			return result;
+		}
 	}
 
 }
