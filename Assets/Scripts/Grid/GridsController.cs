@@ -8,6 +8,8 @@ public class GridsController : MonoBehaviour {
     public int gridNumberY;
     public GameObject gridObject; // grid prefab
 
+    public GameLoop gameLoop;
+
     public Vector2[] targetList1 = new Vector2[8];
     public Vector2[] targetList2 = new Vector2[8];
     public Grid player1CurrentTarget;
@@ -127,17 +129,21 @@ public class GridsController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if(!player1CurrentTarget)
-		{
-			SetTargetForPlayer(1, player1CurStage);
-            if (player1CurStage < 7) player1CurStage++;
-            
-		}
-		if(!player2CurrentTarget)
-		{
-			SetTargetForPlayer(2, player2CurStage);
-            if (player2CurStage < 7) player2CurStage++;
-		}
+        if (gameLoop.gameTimer > 0)
+        {
+
+            if (!player1CurrentTarget)
+            {
+                SetTargetForPlayer(1, player1CurStage);
+                if (player1CurStage < 7) player1CurStage++;
+
+            }
+            if (!player2CurrentTarget)
+            {
+                SetTargetForPlayer(2, player2CurStage);
+                if (player2CurStage < 7) player2CurStage++;
+            }
+        }
 
 	}
 }

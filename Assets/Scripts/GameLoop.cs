@@ -5,8 +5,7 @@ public class GameLoop : MonoBehaviour {
 
 	//timer
 	public float timeLimit = 30;
-	[SerializeField]
-	float gameTimer = 30.0f, beatTimer;
+	public float gameTimer = 30.0f, beatTimer;
 
 	public int totalTask = 5;
 
@@ -111,11 +110,11 @@ public class GameLoop : MonoBehaviour {
         {
             beatTimer = musicCore.tempoInterval;    // reset beat timer
         }
-
+        /*
         if (gameTimer < 0)
 		{
 			endgame();
             gameTimer = timeLimit;
-		}
+		}*/
 	}
 }
