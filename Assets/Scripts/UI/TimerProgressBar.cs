@@ -16,8 +16,8 @@ public class TimerProgressBar : MonoBehaviour {
     public Vector2 emptyBarSize;
     public Texture2D fullTimerBar;
     public Texture2D emptyTimerBar;
-    public float fullBarHeightRatio = 0.056f;
-    public float emptyBarHeightRatio = 0.05f;
+    public float fullBarHeightRatio = 0.98f;
+    public float emptyBarHeightRatio = 0.978f;
 
     // Use this for initialization
     void Start () {
@@ -51,6 +51,7 @@ public class TimerProgressBar : MonoBehaviour {
         float currProgress = fullBarSize.x * Mathf.Clamp01(progress);
         GUI.DrawTexture(new Rect(emptyBarstartPos.x, emptyBarstartPos.y, emptyBarSize.x, emptyBarSize.y), emptyTimerBar);
         GUI.DrawTexture(new Rect(fullBarstartPos.x, fullBarstartPos.y, fullBarSize.x * Mathf.Clamp01(progress), fullBarSize.y), fullTimerBar);
+        
     }
 	
 	// Update is called once per frame
