@@ -31,10 +31,12 @@ public class Grid : MonoBehaviour {
         stoneAnimation = stoneObje.GetComponent<StoneAnimation>();
 	}
 
-	void Start()
-	{
-		gridsController = transform.parent.GetComponent<GridsController>();
-	}
+    public void Init(GridsController controller, Vector3 pos)
+    {
+        gridsController = controller;
+        setPosition(pos);
+		transform.SetParent(controller.transform,false);
+    }
 	
     public void setPosition(Vector3 pos)
     {

@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.Assertions;
 
 public class GridsController : MonoBehaviour {
 
@@ -20,7 +22,8 @@ public class GridsController : MonoBehaviour {
     // private variable defines   
     private float gridHeight;
     private float gridWidth;
-    private Grid[,] grids;
+	private List<List<Grid>> grids;
+
     
     // Use this for initialization
     public void InitializeGrids() {
@@ -28,23 +31,30 @@ public class GridsController : MonoBehaviour {
         Grid grid = gridObject.GetComponent<Grid>();
         gridHeight = grid.height;
         gridWidth = grid.width;
-        grids = new Grid[gridNumberX, gridNumberY];
-        // spawn grids
-        for(int i = 0; i < gridNumberY; ++i)
-        {
-            float y = ((gridNumberY - 1) * 0.5f - i) * gridHeight;
-            for (int j = 0; j < gridNumberX; ++j)
-            {
-                float x = ((gridNumberX - 1) * 0.5f - j) * gridWidth;               
-                Vector3 position = new Vector3(x, y, 0);
-                Grid gridInstance = (Grid)Instantiate(grid, position, Quaternion.identity);
-                gridInstance.setPosition(position);
-                grids[j, i] = gridInstance;
-                gridInstance.transform.SetParent(transform, false);
-				//gridInstance.gridsController = transform.parent;
-            }
-        }
+		grids = new List<List<Grid>>();
 
+
+        // spawn grids
+        for(int i = 0; i < gridNumberX; ++i)
+		{
+			float x = ((gridNumberX - 1) * 0.5f - i) * gridWidth; 
+			List<Grid> gridRow = new List<Grid>();
+
+            for (int j = 0; j < gridNumberY; ++j)
+			{              
+				float y = ((gridNumberY - 1) * 0.5f - j) * gridHeight;
+                Vector3 position = new Vector3(x, y, 0);
+                GameObject gridObj = Instantiate(gridObject, position, Quaternion.identity) as GameObject;
+				Grid gridInstance = gridObj.GetComponent<Grid>();
+				if ( gridInstance != null )
+				{
+					gridInstance.Init(this,position);
+					gridRow.Add(gridInstance);
+				}
+            }
+			grids.Add(gridRow);
+        }
+			
         player1CurStage = 0;
         player2CurStage = 0;
         SetTargetForPlayer(1, player1CurStage);
@@ -53,8 +63,8 @@ public class GridsController : MonoBehaviour {
 
     public void SetTargetForPlayer(int playerID, int stage)
     {
-        int n = 3;
-        Debug.Log(stage + "for Player: " + playerID);
+        int n = 1;
+        Debug.Log(stage + " for Player: " + playerID);
         //grids[gridX, gridY].setToTargetGrid(playerID);
 		if(playerID == 1)
 		{
@@ -91,13 +101,14 @@ public class GridsController : MonoBehaviour {
 
         if (playerID == 1)
         {
-            Grid targetGrid = grids[x, y];            
+			
+			Grid targetGrid = grids[x][y];
             player1CurrentTarget = targetGrid;
             return targetGrid.setToTargetGrid(playerID);
         }
         else
         {
-            Grid targetGrid = grids[x, y];
+			Grid targetGrid = grids[x][y];
             player2CurrentTarget = targetGrid;
             return targetGrid.setToTargetGrid(playerID);
         }
@@ -108,8 +119,10 @@ public class GridsController : MonoBehaviour {
 	
     // get grid based on its idex
     public Grid getGrid(int x, int y)
-    {
-        return grids[x, y];
+	{ 
+		Assert.IsFalse(x < 0 || x >= gridNumberX);
+		Assert.IsFalse(y < 0 || y >= gridNumberY);
+		return grids[x][y];
     }
 
     public float getGridHeight()
@@ -131,7 +144,6 @@ public class GridsController : MonoBehaviour {
 	void Update () {
         if (gameLoop.gameTimer > 0)
         {
-
             if (!player1CurrentTarget)
             {
                 SetTargetForPlayer(1, player1CurStage);

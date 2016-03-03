@@ -28,13 +28,13 @@ public class GameLoop : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+		//initialize grid
+        grids.InitializeGrids();
 
 		//initialize data
 		gameTimer = timeLimit;
         beatTimer = musicCore.tempoInterval;
 
-		//initialize grid
-        grids.InitializeGrids();
         //grids.SetTargetForPlayer(1, 0);
         //grids.SetTargetForPlayer(2, 0);
 
@@ -46,7 +46,6 @@ public class GameLoop : MonoBehaviour {
         //spawn player
         setupPlayers();
 
-
 	}
 
 	void setupPlayers()
@@ -54,7 +53,7 @@ public class GameLoop : MonoBehaviour {
 
 		player1 = (GameObject) Instantiate(playerPrefab1, grids.getGrid((int)player1Pos.x, (int)player1Pos.y).getPositionV3(), transform.rotation);
 		player1.name = "Player 1";
-        player1.GetComponent<Player>().gridManager = grids;
+		player1.GetComponent<Player>().gridManager = grids;
         player1.GetComponent<Player>().musicCore = musicCore;
 		PlayerStatus PS1 = player1.GetComponent<PlayerStatus>();
 		PS1.setupPlayerStatus(1 ,totalTask);

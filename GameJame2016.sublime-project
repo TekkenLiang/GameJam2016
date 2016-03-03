@@ -2,10 +2,10 @@
 
 {
   "folders":
-  [ { "folder_exclude_patterns": [ "GameJam2016/Library" ]
+  [ { "folder_exclude_patterns": [ "Library" ]
     , "file_exclude_patterns": [ "*.meta", "*.prefab" , "*.psd" , "*.png" ]
     , "path": "."
     }
   ]
-  , "solution_file": "GameJam2016.sln"
+  , "solution_file": "GameJame2016.sln"
 }

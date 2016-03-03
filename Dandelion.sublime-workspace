@@ -1,1 +1,1717 @@
-{}
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"lo",
+				"Log(object message)	void"
+			],
+			[
+				"Getkey",
+				"GetKey(KeyCode key)	bool"
+			],
+			[
+				"com",
+				"LeftCommand	KeyCode"
+			],
+			[
+				"up",
+				"UpgradePattern()	void"
+			],
+			[
+				"Spri",
+				"Sprite	Sprite"
+			],
+			[
+				"Spre",
+				"Sprite"
+			],
+			[
+				"en",
+				"Length	int { get; }"
+			],
+			[
+				"sprite",
+				"sprites"
+			],
+			[
+				"spr",
+				"sprite	(StoneAnimation.cs)"
+			],
+			[
+				"loc",
+				"localScale	(StoneAnimation.cs)"
+			],
+			[
+				"c",
+				"creatInterval	MinMax"
+			],
+			[
+				"tim",
+				"Time	Time"
+			],
+			[
+				"v3",
+				"Vector3	Vector3"
+			],
+			[
+				"one",
+				"one	Vector3 { get; }"
+			],
+			[
+				"Setst",
+				"SetStoneTypeByTo"
+			],
+			[
+				"setston",
+				"SetStoneTypeImediately(StoneType type, PlayerType player = PlayerType.None, int level = 0)	void"
+			],
+			[
+				"Setea",
+				"SetEase<T>(Ease ease)	T"
+			],
+			[
+				"move",
+				"DOLocalMoveY(float endValue, float duration, bool snapping = false)	Tweener"
+			],
+			[
+				"swit",
+				"SwitchTypeAnimation()	void"
+			],
+			[
+				"no",
+				"Normal	StoneType"
+			],
+			[
+				"spri",
+				"Sprite	Sprite"
+			],
+			[
+				"po",
+				"localPosition	Vector3 { get; set; }"
+			],
+			[
+				"poy",
+				"positionYRange"
+			],
+			[
+				"init",
+				"Init()	void"
+			],
+			[
+				"go",
+				"Glow()	void"
+			],
+			[
+				"glo",
+				"Glow()	void"
+			],
+			[
+				"jum",
+				"JumpUp()	void"
+			],
+			[
+				"scale",
+				"animationScale	float"
+			],
+			[
+				"los",
+				"localScale	Vector3 { get; set; }"
+			],
+			[
+				"getcomponent",
+				"GetComponent<T>()	T"
+			],
+			[
+				"cirdel",
+				"circle1Delay"
+			],
+			[
+				"set",
+				"SetDelay<T>(float delay)	T"
+			],
+			[
+				"cirsca",
+				"circle1Scale"
+			],
+			[
+				"circl",
+				"circle1"
+			],
+			[
+				"IE",
+				"IEnumerator	IEnumerator"
+			],
+			[
+				"col",
+				"color	Color { get; set; }"
+			],
+			[
+				"Anima",
+				"Animator	Animator"
+			],
+			[
+				"Jumpri",
+				"JumpRight()	void"
+			],
+			[
+				"inout",
+				"InOutExpo	Ease"
+			],
+			[
+				"right",
+				"RightArrow	KeyCode"
+			],
+			[
+				"Ke",
+				"KeyCode	KeyCode"
+			],
+			[
+				"loop",
+				"Loops()	int"
+			],
+			[
+				"ver",
+				"vertical-align"
+			],
+			[
+				"tex",
+				"text-align"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
+				"Showboo",
+				"ShowBookList(List<BookInfo> books)	void"
+			],
+			[
+				"syst",
+				"System	System"
+			],
+			[
+				"sys",
+				"System	System"
+			],
+			[
+				"sear",
+				"Search(int time, string field, int relation = 1)	List<BookInfo>"
+			],
+			[
+				"pu",
+				"publisher	(dataTransform.py)"
+			],
+			[
+				"getc",
+				"GetChildCount()	int"
+			],
+			[
+				"getch",
+				"GetChild(int index)	Transform"
+			],
+			[
+				"getchi",
+				"GetChildCount()	int"
+			],
+			[
+				"isre",
+				"SetRelative<T>(bool isRelative)	T"
+			],
+			[
+				"domo",
+				"DOMoveY(float endValue, float duration, bool snapping = false)	Tweener"
+			],
+			[
+				"Tran",
+				"transform	Transform { get; }"
+			],
+			[
+				"img",
+				"image	(SPECCOLL.ITEMS.20151117)"
+			],
+			[
+				"getcompo",
+				"GetComponentsInChildren<T>()	T[]"
+			],
+			[
+				"heig",
+				"barHeight	float"
+			],
+			[
+				"Ins",
+				"Instantiate(Object original)	Object"
+			],
+			[
+				"Rect",
+				"RectTransform"
+			],
+			[
+				"Getin",
+				"GetInt32(int index)	int"
+			],
+			[
+				"getstr",
+				"GetString(int index)	string"
+			],
+			[
+				"Des",
+				"Description"
+			],
+			[
+				"Image",
+				"Image	Image"
+			],
+			[
+				"sf",
+				"SerializeField	SerializeField"
+			],
+			[
+				"cont",
+				"content2"
+			],
+			[
+				"SLin",
+				"SQL_INSERT"
+			],
+			[
+				"defau",
+				"TypeToDefaultValue"
+			],
+			[
+				"con",
+				"content2"
+			],
+			[
+				"SQL",
+				"SQL_CREATE"
+			],
+			[
+				"tyte",
+				"tinytext"
+			],
+			[
+				"year",
+				"year(4"
+			],
+			[
+				"Re",
+				"ReadLine"
+			],
+			[
+				"MY",
+				"MySqlCommand"
+			],
+			[
+				"des",
+				"description"
+			],
+			[
+				"TAB",
+				"TABLE_NAME"
+			],
+			[
+				"TAb",
+				"TABLE_NAME"
+			],
+			[
+				"TA",
+				"TABLE_NAME"
+			],
+			[
+				"INS",
+				"INSTRCTION_CREATE"
+			],
+			[
+				"au",
+				"autoplay"
+			],
+			[
+				"pro",
+				"prop"
+			],
+			[
+				"fu",
+				"function"
+			],
+			[
+				"audioloo",
+				"audiosLoop"
+			],
+			[
+				"do",
+				"Dot(Vector3 lhs, Vector3 rhs)	float"
+			],
+			[
+				"camer",
+				"Camera	Camera"
+			],
+			[
+				"rig",
+				"rigidbody	Component { get; }"
+			],
+			[
+				"over",
+				"override	(LittleMonsterController.cs)"
+			],
+			[
+				"m",
+				"Min	float { get; }"
+			],
+			[
+				"linma",
+				"LinMapFrom01(float outputStart, float outputEnd, float inputValue01)	float"
+			],
+			[
+				"_radi",
+				"_radiusChangingRoutine"
+			],
+			[
+				"_ra",
+				"_radiusChangingRoutine"
+			],
+			[
+				"Finmons",
+				"SpawnFinalMonsterEvent	SpawnFinalMonsterEvent"
+			],
+			[
+				"le",
+				"Lerp(Vector3 a, Vector3 b, float t)	Vector3"
+			],
+			[
+				"Getde",
+				"GetDistanceToCamera()	float"
+			],
+			[
+				"Gdi",
+				"GetDistanceToCamera()	float"
+			],
+			[
+				"Fora",
+				"ForceAwayFromTarget()	void"
+			],
+			[
+				"_tr",
+				"_cameraTransform"
+			],
+			[
+				"Minma",
+				"MinMax(float min, float max)	MinMax(float min, float max)"
+			],
+			[
+				"Minm",
+				"MinMax	MinMax"
+			],
+			[
+				"tr",
+				"isTrigger	bool { get; set; }"
+			],
+			[
+				"Sr",
+				"SerializeField"
+			],
+			[
+				"ri",
+				"rigidbody	Component { get; }"
+			],
+			[
+				"Cl",
+				"Clamp(int value, int min, int max)	int"
+			],
+			[
+				"InIn",
+				"ShowInInspectorAttribute	ShowInInspectorAttribute"
+			],
+			[
+				"parm",
+				"parameters"
+			],
+			[
+				"novi",
+				"NoiseVarianceTheta	float"
+			],
+			[
+				"p",
+				"PI	float"
+			],
+			[
+				"setboo",
+				"SetBool(int id, bool value)	void"
+			],
+			[
+				"par",
+				"Parameters	Parameters"
+			],
+			[
+				"Monbe",
+				"MonsterBehaviour	MonsterBehaviour"
+			],
+			[
+				"get",
+				"GetBehaviours<T>()	T[]"
+			],
+			[
+				"Mon",
+				"MonsterBehaviour	MonsterBehaviour"
+			],
+			[
+				"getbo",
+				"GetBool(int id)	bool"
+			],
+			[
+				"ta",
+				"Tags	Tags"
+			],
+			[
+				"coll",
+				"Collision	Collision"
+			],
+			[
+				"Ani",
+				"Animator	Animator"
+			],
+			[
+				"ani",
+				"Animator	Animator"
+			],
+			[
+				"Litt",
+				"LittleMonsterController	LittleMonsterController"
+			],
+			[
+				"tot",
+				"total_time"
+			],
+			[
+				"pre",
+				"precise_small"
+			],
+			[
+				"tes",
+				"TEST_N"
+			],
+			[
+				"inp",
+				"inputListA"
+			],
+			[
+				"inputli",
+				"inputListA"
+			],
+			[
+				"inpuli",
+				"inputListB"
+			],
+			[
+				"input",
+				"inputA"
+			],
+			[
+				"test",
+				"TEST_DELAY_TIME"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "Assets/Scripts/Player/Player.cs",
+			"settings":
+			{
+				"buffer_size": 5193,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Assets/Scripts/Player/PlayerAnimation.cs",
+			"settings":
+			{
+				"buffer_size": 1108,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Assets/Scripts/Rhythm/MusicEventManager.cs",
+			"settings":
+			{
+				"buffer_size": 624,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Assets/Scripts/Rhythm/MusicCore.cs",
+			"settings":
+			{
+				"buffer_size": 9147,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Assets/Scripts/Effect/ChangeAlpha.cs",
+			"settings":
+			{
+				"buffer_size": 504,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Assets/Scripts/Stone/StoneAnimation.cs",
+			"settings":
+			{
+				"buffer_size": 6146,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 367.0,
+		"selected_items":
+		[
+			[
+				"relo",
+				"OmniSharpSublime: Reload Solution"
+			],
+			[
+				"relos",
+				"OmniSharpSublime: Reload Solution"
+			],
+			[
+				"package control in",
+				"Package Control: Install Package"
+			],
+			[
+				"rel",
+				"OmniSharpSublime: Reload Solution"
+			],
+			[
+				"reso",
+				"OmniSharpSublime: Reload Solution"
+			],
+			[
+				"install p",
+				"Package Control: Install Package"
+			],
+			[
+				"packin",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"proj",
+				"Project: Save As"
+			],
+			[
+				"py",
+				"Set Syntax: Python"
+			],
+			[
+				"build",
+				"Build: basic"
+			],
+			[
+				"buil",
+				"Build: Build"
+			],
+			[
+				"basi",
+				"Build: basic"
+			],
+			[
+				"por",
+				"Project: Refresh Folders"
+			],
+			[
+				"pro",
+				"Project: Save As"
+			],
+			[
+				"add f",
+				"Project: Add Folder"
+			],
+			[
+				"save as",
+				"Project: Save As"
+			],
+			[
+				"save a",
+				"File: Save All"
+			],
+			[
+				"ja",
+				"Set Syntax: Java"
+			],
+			[
+				"c",
+				"Set Syntax: C"
+			],
+			[
+				"c++",
+				"Set Syntax: C++"
+			],
+			[
+				"ter",
+				"Open in terminal"
+			],
+			[
+				"term",
+				"Open in terminal"
+			],
+			[
+				"pac",
+				"Package Control: List Packages"
+			],
+			[
+				"pacin",
+				"Package Control: Install Package"
+			],
+			[
+				"pain",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"Package Control: Install Package"
+			],
+			[
+				"pa",
+				"Package Control: Disable Package"
+			],
+			[
+				"set py",
+				"Set Syntax: Python"
+			],
+			[
+				"setr",
+				"Set Syntax: R"
+			],
+			[
+				"set tex",
+				"Set Syntax: TeX"
+			],
+			[
+				"set t",
+				"Set Syntax: Tcl"
+			],
+			[
+				"setp",
+				"Set Syntax: Python"
+			],
+			[
+				"set c",
+				"Set Syntax: C++"
+			],
+			[
+				"set ja",
+				"Set Syntax: Java"
+			],
+			[
+				"paccon",
+				"Package Control: Disable Package"
+			],
+			[
+				"setc+",
+				"Set Syntax: C++"
+			],
+			[
+				"setj",
+				"Set Syntax: Java"
+			],
+			[
+				"cloa",
+				"File: Close All"
+			],
+			[
+				"cloal",
+				"File: Close All"
+			],
+			[
+				"clos",
+				"File: Close All"
+			],
+			[
+				"previ",
+				"Bookmarks: Select Previous"
+			],
+			[
+				"previou",
+				"Bookmarks: Select Previous"
+			],
+			[
+				"def",
+				"Preferences: Settings - Default"
+			],
+			[
+				"use",
+				"Preferences: Settings - User"
+			],
+			[
+				"p",
+				"Package Control: Install Package"
+			],
+			[
+				"user",
+				"Preferences: Settings - User"
+			],
+			[
+				"soda",
+				"Preferences: Package Control Settings – Default"
+			],
+			[
+				"shell",
+				"Set Syntax: Shell Script (Bash)"
+			],
+			[
+				"conpa",
+				"Package Control: Remove Package"
+			]
+		],
+		"width": 521.0
+	},
+	"console":
+	{
+		"height": 300.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"import urllib.request,os;",
+			"ls",
+			"cd ..",
+			"ls"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/atwood/tem/unitys/GameJam2016/Assets/Scripts/Effect/CloudCreator.cs",
+		"/Users/atwood/tem/unitys/GameJam2016/Assets/Scripts/Player/PlayerStatus.cs",
+		"/Users/atwood/tem/unitys/GameJam2016/Assets/Scripts/Stone/StoneAnimation.cs",
+		"/Users/atwood/tem/unitys/GameJam2016/Assets/Scripts/Stone/RandomInit.cs",
+		"/Users/atwood/tem/unitys/GameJam2016/Assets/Scripts/Global.cs",
+		"/Users/atwood/tem/unitys/GameJam2016/Assets/Scripts/Grid/Grid.cs",
+		"/Users/atwood/tem/unitys/GameJam2016/Assets/Scripts/Grid/GridsController.cs",
+		"/Users/atwood/tem/unitys/GameJam2016/Assets/Scripts/Effect/ChangeAlpha.cs",
+		"/Users/atwood/tem/unitys/GameJam2016/Assets/Scripts/Effect/Cloud.cs",
+		"/Users/atwood/tem/unitys/GameJam2016/Assets/Scripts/Rhythm/MusicEventManager.cs",
+		"/Users/atwood/tem/unitys/GameJam2016/Assets/Scripts/Player/PlayerMovementTest.cs",
+		"/Users/atwood/tem/unitys/GameJam2016/Assets/Scripts/Player/PlayerAnimation.cs",
+		"/Users/atwood/tem/unitys/GameJam2016/Assets/Animation/Character-blue.controller",
+		"/Users/atwood/tem/unitys/GameJam2016/ProjectSettings/ClusterInputManager.asset",
+		"/Users/atwood/tem/unitys/GameJam2016/Assembly-CSharp.csproj",
+		"/Users/atwood/tem/unitys/GameJam2016/Assets/Scripts/Rhythm/MusicCore.cs",
+		"/Users/atwood/tem/unitys/GameJam2016/Assets/Scene/Main.unity",
+		"/Users/atwood/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/atwood/tem/unitys/GameJam2016/Temp/UnityLockfile",
+		"/Users/atwood/tem/unitys/GameJam2016/Assets/Animation/red.anim",
+		"/Users/atwood/tem/unitys/GameJam2016/Assets/Scripts/Effect/StoneEffect.cs",
+		"/Users/atwood/tem/unitys/GameJam2016/Assets/Scripts/GameLoop.cs",
+		"/Users/atwood/tem/unitys/GameJam2016/.gitattributes",
+		"/Users/atwood/tem/unitys/GameJam2016/ProjectSettings/GraphicsSettings.asset",
+		"/Users/atwood/tem/unitys/GameJam2016/GameJam2016.sln",
+		"/Users/atwood/tem/unitys/GameJam2016/Assets/Scripts/Behavior/BehaviorFail.cs",
+		"/Users/atwood/tem/unitys/GameJam2016/Assets/BehaviorJump.cs",
+		"/Users/atwood/tem/unitys/GameJam2016/Assets/Scripts/Player/Player.cs",
+		"/Users/atwood/tem/unitys/GameJam2016/ProjectSettings/Physics2DSettings.asset",
+		"/Users/atwood/tem/unitys/GameJam2016/Dandelion.sublime-project",
+		"/Users/atwood/tem/experimental/fluid/Makefile",
+		"/Users/atwood/Documents/course/IMD/y2016spring/writting/w3",
+		"/Users/atwood/tem/experimental/fluid/test.cpp",
+		"/Users/atwood/Documents/course/IMD/y2016spring/experimental /w3-2",
+		"/Users/atwood/Desktop/one-sheet-pres",
+		"/Users/atwood/tem/library/LibViz/Assets/Script/TestInterface/LogicManager.cs",
+		"/Users/atwood/tem/library/LibViz/Assets/Script/DataBase/SQLConnector.cs",
+		"/Users/atwood/tem/unitys/library/Assets/MScript/Global.cs",
+		"/Users/atwood/Documents/course/IMD/y2016spring/audio/w3",
+		"/Users/atwood/tem/experimental/bad game/introduction",
+		"/Users/atwood/Dropbox/CTIN-492 Experimental/Experimental work due/1.26 Experimental game 1/Dave Yan/instructionsForRunning.txt",
+		"/Users/atwood/tem/unitys/Dandelion/Assets/Design/story",
+		"/Users/atwood/Downloads/Challenge1/Challenge.cpp",
+		"/Users/atwood/Downloads/Challenge1/System.h",
+		"/Users/atwood/Documents/course/IMD/y2015/writting/w1-critism",
+		"/Users/atwood/Documents/course/IMD/internship/letter",
+		"/Users/atwood/Downloads/Challenge (1)/Challenge.cpp",
+		"/Users/atwood/tem/PersonalPage/works/graffiti/index.html",
+		"/Users/atwood/tem/PersonalPage/works/tumbler/index.html",
+		"/Users/atwood/tem/PersonalPage/works/sunset/index.html",
+		"/Users/atwood/tem/PersonalPage/works/subway/index.html",
+		"/Users/atwood/tem/PersonalPage/works/planet/index.html",
+		"/Users/atwood/tem/PersonalPage/works/mirror/index.html",
+		"/Users/atwood/tem/PersonalPage/contact.html",
+		"/Users/atwood/tem/PersonalPage/about.html",
+		"/Users/atwood/Documents/course/IMD/internship/cover letter",
+		"/Users/atwood/Documents/course/IMD/y2016spring/experimental /w1-2",
+		"/Users/atwood/tem/unitys/library/Assets/MScript/save",
+		"/Users/atwood/Documents/course/IMD/y2016spring/audio/w2",
+		"/Users/atwood/Documents/course/IMD/y2016spring/experimental /w2-1",
+		"/Users/atwood/tem/unitys/library/Kinect/NITE-Bin-Dev-MacOSX-v1.5.2.21/Documentation/html/graph_legend.html",
+		"/Users/atwood/tem/unitys/library/library.sln",
+		"/Users/atwood/tem/unitys/library/Assets/Data/sql/data.sql",
+		"/Users/atwood/Downloads/TestTable(1).sql",
+		"/Users/atwood/Downloads/TestTable.sql",
+		"/Users/atwood/Downloads/%E6%AD%BB%E7%A5%9E%E7%9A%84%E7%B2%BE%E7%A1%AE%E5%BA%A6.txt",
+		"/Users/atwood/tem/700/html5/700html/page/main.html",
+		"/Users/atwood/tem/700/html5/700html/page/tutorial.html",
+		"/Users/atwood/tem/700/html5/700html/page/end.html",
+		"/Volumes/NO NAME/700html/page/index.html",
+		"/Users/atwood/Library/Containers/com.apple.mail/Data/Library/Mail Downloads/5FC8A7E4-A41B-420D-B343-1138F08F5534/SPECCOLL.ITEMS.20151117",
+		"/Users/atwood/tem/700/html5/700html/page/index.html",
+		"/Users/atwood/Desktop/intro",
+		"/Users/atwood/Desktop/playtest",
+		"/Users/atwood/tem/Meadow/TheMeadow/Assets/__Scripts/MonsterSystem.cs",
+		"/Users/atwood/tem/Meadow/TheMeadow/Assets/__Scripts/LilMonsterCapsuleColliderController.cs",
+		"/Users/atwood/tem/Meadow/TheMeadow/Assets/__Scripts/LoopStumpBunnyAnim.cs",
+		"/Users/atwood/tem/Meadow/TheMeadow/Assets/Merlin's Prefab Lab/Editor/PrefabLabSettings.cs",
+		"/Users/atwood/tem/Meadow/TheMeadow/Assets/Prefabs/LittleMonsterLast_P.prefab",
+		"/Users/atwood/tem/Meadow/TheMeadow/Assets/Merlin's Prefab Lab/Scripts/PrefabLabData.cs",
+		"/Users/atwood/tem/Meadow/TheMeadow/Assets/Standard Assets/Particles/Sources/Materials/Smoke Trail.mat",
+		"/Users/atwood/tem/Meadow/TheMeadow/Assets/Standard Assets/Particles/Sources/Animations/Stop Emitting 1 sec.anim",
+		"/Users/atwood/tem/Meadow/TheMeadow/Assets/Standard Assets/Particles/Sources/Animations/Stop Emitting ,5 sec.anim",
+		"/Users/atwood/tem/Meadow/TheMeadow/Assets/Prefabs/BlackoutSphere.prefab",
+		"/Users/atwood/tem/Meadow/TheMeadow/Assets/Materials/BlackoutSphere.mat",
+		"/Users/atwood/tem/Meadow/TheMeadow/Assets/__Scripts/BlackoutSphere.cs",
+		"/Users/atwood/tem/Meadow/TheMeadow/Assets/__Scripts/PlayerLookingAt.cs",
+		"/Users/atwood/tem/Meadow/TheMeadow/Assets/Models/Materials/LivingStoneFaces.mat",
+		"/Users/atwood/tem/Meadow/TheMeadow/Assets/Models/Materials/LivingStoneEdges.mat",
+		"/Users/atwood/tem/Meadow/TheMeadow/Assets/Materials/leaf shades (1).mat",
+		"/Users/atwood/tem/Meadow/TheMeadow/ProjectSettings/NavMeshLayers.asset",
+		"/Users/atwood/tem/Meadow/TheMeadow/Assets/Prefabs/TestObjects/LittleMonsterAnimTest.prefab",
+		"/Users/atwood/tem/Meadow/TheMeadow/Assets/__Scripts/Test/LittleMonsterAnimTest.cs",
+		"/Users/atwood/tem/Meadow/TheMeadow/Assets/__Scripts/MonsterBehaviours/EyeControlBehaviour.cs",
+		"/Users/atwood/tem/Meadow/TheMeadow/Assets/__Scripts/Billboard.cs",
+		"/Users/atwood/tem/Meadow/TheMeadow/Assets/__Scripts/Timeline/Timeline.cs",
+		"/Users/atwood/tem/Meadow/TheMeadow/Assets/__Scripts/MonsterRising.cs",
+		"/Users/atwood/tem/Meadow/TheMeadow/Assets/__Scripts/LittleMonsterController.cs",
+		"/Users/atwood/tem/Meadow/TheMeadow/Assets/Prefabs/LilMonsterCapsuleCollider.prefab",
+		"/Users/atwood/tem/Meadow/TheMeadow/Assets/__Scripts/MonsterBehaviours/MonsterBehaviour.cs",
+		"/Users/atwood/tem/Meadow/TheMeadow/Assets/Animations/EyeClose.anim",
+		"/Users/atwood/tem/Meadow/TheMeadow/ProjectSettings/EditorSettings.asset",
+		"/Users/atwood/tem/Meadow/TheMeadow/Assets/__Scripts/MonsterSpawner.cs",
+		"/Users/atwood/tem/Meadow/TheMeadow/Assets/__Scripts/ObjectPooling/PooledObjectFactory.cs",
+		"/Users/atwood/Library/Application Support/Sublime Text 3/Packages/Default/Default (OSX).sublime-keymap",
+		"/Users/atwood/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/atwood/tem/Meadow/TheMeadow/Assets/Images/oaktree.fbx",
+		"/Users/atwood/tem/Meadow/TheMeadow/Assets/Materials/Bright Green Grass.mat",
+		"/Users/atwood/tem/Meadow/TheMeadow/Assets/__Scripts/CodeGenerators/Editor/SublimeProjectGenerator.cs",
+		"/Users/atwood/tem/Meadow/TheMeadow/Assets/Models/LivingStone/livingstone-rounder-test.ma",
+		"/Users/atwood/tem/Meadow/TheMeadow/Assets/Fonts/LinLibertine_R.otf",
+		"/Users/atwood/tem/Meadow/TheMeadow/Assets/__Scripts/ManageAmbientFog.cs",
+		"/Users/atwood/tem/Meadow/TheMeadow/Assets/__Scripts/Cloud.cs",
+		"/Users/atwood/tem/Meadow/TheMeadow/Assets/__Scripts/UnityConstants.cs",
+		"/Users/atwood/tem/Meadow/TheMeadow/Assets/Prefabs/Rigidbody_Objects/Cone RB.prefab",
+		"/Users/atwood/tem/Meadow/TheMeadow/Assets/Images/Materials/monsterA.mat",
+		"/Users/atwood/tem/Meadow/TheMeadow/Assets/Prefabs/Mountain-old-2.prefab",
+		"/Users/atwood/tem/Meadow/TheMeadow.sublime-project",
+		"/Users/atwood/tem/Meadow/TheMeadow/ProjectSettings/TimeManager.asset",
+		"/Users/atwood/tem/Meadow/TheMeadow/Assets/__Scripts/SkyColorControl/TemporalColorInterpolator.cs",
+		"/Users/atwood/tem/Meadow/TheMeadow/Assets/__Scripts/Behaviours/FallingBehaviour.cs",
+		"/Users/atwood/tem/Meadow/TheMeadow/Assets/__Scripts/UnityAnimationConstants.cs",
+		"/Users/atwood/tem/Meadow/TheMeadow/Assets/__Scripts/Behaviours/CirclingBehaviour.cs",
+		"/Users/atwood/tem/Meadow/TheMeadow/Assets/__Scripts/LittleMonsterEyelid.cs",
+		"/Users/atwood/tem/Meadow/TheMeadow/Assets/__Scripts/LittleMonster.cs",
+		"/Users/atwood/tem/Meadow/TheMeadow/Assets/Materials/MonsterEyelid.mat",
+		"/Users/atwood/tem/Meadow/TheMeadow/Assets/Resources/MonsterEyelidImages/Materials/eyelids_04.mat",
+		"/Users/atwood/tem/Meadow/TheMeadow/Assets/Images/Materials/eyelids.mat"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"SetStoneTypeImediately",
+			"myType",
+			"250",
+			"background",
+			"color",
+			"The sea",
+			"serachBookInfo",
+			"__DATA__",
+			"SQL_CREATE",
+			"Country",
+			"country",
+			"S_COUNTRY",
+			"\\n'",
+			")",
+			"out.write(",
+			"Gunnar",
+			"by",
+			"MovementDirection",
+			"last",
+			"Setdirection",
+			"switch",
+			"_rigidbody",
+			"_sqrVel",
+			"_visuals",
+			"MovementDirection",
+			"IPoolable",
+			"+k",
+			"animationSpeed",
+			"_maxAnimationSpeedRange",
+			"KeyCode",
+			"lastMonsterRadius",
+			"MoveSideways",
+			"MovementDirection",
+			"MoveSideways",
+			"StopChanging",
+			"OnSpawnFinalMonsterEvent",
+			"IsLast",
+			"spawn",
+			"SpawnLastMonster",
+			"DieOnFinalMonsterPhase",
+			"FinalMonsterPhaseStartedEvent",
+			"_testEventSequence",
+			"blinking",
+			"unblinkDuration",
+			"blinking",
+			"myEyelidBlinking",
+			"myEyelid",
+			"blinking",
+			"Gestalt-grouping phenomenon",
+			"ShouldMove",
+			"MoveSideways",
+			"ShouldMove",
+			"t * parameters.WindingFactor",
+			"amiseen",
+			"vectorToTarget",
+			"sidewaysMoveSpeed",
+			"attackSpeed",
+			"walkingClockwise",
+			"myPosition",
+			"attackspeed",
+			"canMove",
+			"changedirection",
+			"get_spike",
+			"65",
+			"pstc",
+			"def connect",
+			"time",
+			"connect",
+			"delay",
+			"open-source",
+			"analyze_output",
+			"termination_thalamus",
+			"analyze_output",
+			"'output",
+			"block_rewards",
+			"termination_thalamus",
+			"random",
+			"trials_per_block",
+			"delay_dur",
+			"quit()",
+			"analyze_output",
+			"compareLogName",
+			"hrr",
+			"LogVocab",
+			"random.",
+			"random",
+			"ca.nengo.model.neuron.impl.LIF",
+			"spike",
+			"SA =",
+			"SA.",
+			"SA",
+			"tt.",
+			"ts.",
+			"random",
+			"driveparams_on",
+			"Connectw",
+			"StateClamp",
+			"tt",
+			"tool",
+			"/n",
+			"/r",
+			"keys",
+			".write",
+			"readlines",
+			"dict",
+			"pre",
+			"cval2rval",
+			"get_connection_value",
+			"dir_name",
+			"get_filename_spike(",
+			"get_log_name",
+			"get_log_name()",
+			"transform_log",
+			"simulator",
+			"get_file",
+			"simpleanalyze",
+			"prefix",
+			"__DICT__",
+			"FunctionInput",
+			"input",
+			"input_list",
+			"open",
+			"end",
+			"\\n",
+			"last",
+			"self.log_name",
+			"self.logname",
+			"reset("
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"previous",
+			"ma",
+			"pixel",
+			"if_win",
+			"tw5",
+			"MW2",
+			"MW1",
+			"TW1",
+			"MA3",
+			"MA2",
+			"MA1",
+			"FA3",
+			"FA2",
+			"FA1",
+			"T5",
+			"T4",
+			"T3",
+			"T2",
+			"DYQ"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 4,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "Assets/Scripts/Player/Player.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5193,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4547,
+								4547
+							]
+						],
+						"settings":
+						{
+							"hasHeader": false,
+							"oops":
+							{
+								"1090,1092": "Convert to '&=' expresssion",
+								"131,142": "Name should have prefix '_'. (Rule 'Fields').",
+								"1311,1321": "Use 'var' keyword",
+								"1382,1383": "Type cast is redundant",
+								"165,174": "Name should have prefix '_'. (Rule 'Fields').",
+								"1686,1690": "'move' should start with an upper case letter. (Rule 'Methods')",
+								"19,24": "Using directive is not used by code and can be removed safely.",
+								"200,212": "Name should have prefix '_'. (Rule 'Fields').",
+								"248,259": "The private field 'playerPrefs' is never assigned",
+								"325,339": "Convert to constant",
+								"374,389": "Convert to constant",
+								"426,434": "Convert to constant",
+								"467,487": "Name should have prefix '_'. (Rule 'Fields').",
+								"508,522": "Name should have prefix '_'. (Rule 'Fields')."
+							},
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2221.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "Assets/Scripts/Player/PlayerAnimation.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1108,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								322,
+								322
+							]
+						],
+						"settings":
+						{
+							"hasHeader": false,
+							"oops":
+							{
+								"189,197": "The private field 'patterns' is never assigned",
+								"19,24": "Using directive is not used by code and can be removed safely.",
+								"347,364": "Convert to constant",
+								"899,907": "Method 'JumpDown' has the same with 'JumpUp'"
+							},
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 286.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "Assets/Scripts/Rhythm/MusicEventManager.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 624,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								621,
+								621
+							]
+						],
+						"settings":
+						{
+							"hasHeader": false,
+							"oops":
+							{
+								"19,24": "Using directive is not used by code and can be removed safely."
+							},
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "Assets/Scripts/Rhythm/MusicCore.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9147,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2279,
+								2279
+							]
+						],
+						"settings":
+						{
+							"hasHeader": false,
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1477.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "Assets/Scripts/Effect/ChangeAlpha.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 504,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								494,
+								494
+							]
+						],
+						"settings":
+						{
+							"hasHeader": false,
+							"oops":
+							{
+								"134,143": "Convert to constant",
+								"176,184": "Convert to constant",
+								"19,24": "Using directive is not used by code and can be removed safely.",
+								"214,220": "Convert to constant",
+								"253,258": "The private field 'delay' is never assigned"
+							},
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "Assets/Scripts/Stone/StoneAnimation.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6146,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4245,
+								4245
+							]
+						],
+						"settings":
+						{
+							"hasHeader": false,
+							"oops":
+							{
+								"1113,1119": "Local variable 'shadow' hides field 'StoneAnimation.shadow'",
+								"1761,1771": "Use 'var' keyword",
+								"1805,1806": "Type cast is redundant",
+								"1849,1853": "'this.' is redundant and can be removed safely.",
+								"185,195": "The private field 'shadowList' is never assigned",
+								"221,235": "Convert to constant",
+								"276,282": "The private field 'shadow' is never assigned",
+								"2839,2853": "Convert to constant",
+								"317,322": "The private field 'stone' is never assigned",
+								"357,364": "The private field 'pattern' is never assigned",
+								"4187,4194": "Redundant empty 'default' switch branch",
+								"462,470": "Convert to constant",
+								"503,515": "Convert to constant",
+								"554,565": "The private field 'stoneEffect' is never assigned",
+								"601,610": "The private field 'moveCurve' is never assigned",
+								"640,651": "The private field 'normalStone' is never assigned",
+								"680,689": "The private field 'StepStone' is never assigned",
+								"718,734": "The private field 'DestinationStone' is never assigned",
+								"763,776": "The private field 'patternsFirst' is never assigned",
+								"805,819": "The private field 'patternsSecond' is never assigned",
+								"848,860": "The private field 'patternBasic' is never assigned"
+							},
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 112.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.variable_get":
+	{
+		"height": 112.0
+	},
+	"project": "Dandelion.sublime-project",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"chang",
+				"Assets/Scripts/Effect/ChangeAlpha.cs"
+			],
+			[
+				"mus",
+				"Assets/Scripts/Rhythm/MusicCore.cs"
+			],
+			[
+				"ston",
+				"Assets/Scripts/Stone/StoneAnimation.cs"
+			],
+			[
+				"m",
+				"Assets/Scripts/Rhythm/MusicEventManager.cs"
+			],
+			[
+				"plani",
+				"Assets/Scripts/Player/PlayerAnimation.cs"
+			],
+			[
+				"playani",
+				"Assets/Scripts/Player/PlayerAnimation.cs"
+			],
+			[
+				"play",
+				"Assets/Scripts/Player/Player.cs"
+			],
+			[
+				"change",
+				"Assets/Scripts/Effect/ChangeAlpha.cs"
+			],
+			[
+				"cloud",
+				"Assets/Scripts/Effect/Cloud.cs"
+			],
+			[
+				"clou",
+				"Assets/Scripts/Effect/CloudCreator.cs"
+			],
+			[
+				"musicman",
+				"Assets/Scripts/Rhythm/MusicEventManager.cs"
+			],
+			[
+				"gri",
+				"Assets/Scripts/Grid/Grid.cs"
+			],
+			[
+				"glob",
+				"Assets/Scripts/Global.cs"
+			],
+			[
+				"randomin",
+				"Assets/Scripts/Stone/RandomInit.cs"
+			],
+			[
+				"stona",
+				"Assets/Scripts/Stone/StoneAnimation.cs"
+			],
+			[
+				"stone",
+				"Assets/Scripts/Effect/StoneEffect.cs"
+			],
+			[
+				"playmo",
+				"Assets/Scripts/Player/PlayerMovementTest.cs"
+			],
+			[
+				"gl",
+				"Assets/Scripts/Global.cs"
+			],
+			[
+				"pla",
+				"Assets/Scripts/Player/PlayerStatus.cs"
+			],
+			[
+				"grid",
+				"Assets/Scripts/Grid/Grid.cs"
+			],
+			[
+				"stoneeff",
+				"Assets/Scripts/Effect/StoneEffect.cs"
+			],
+			[
+				"beh",
+				"Assets/BehaviorJump.cs"
+			],
+			[
+				"player",
+				"Assets/Scripts/Player/PlayerMovementTest.cs"
+			],
+			[
+				"logma",
+				"Assets/MScript/LogicManager.cs"
+			],
+			[
+				"sql",
+				"Assets/MScript/SQLConnector.cs"
+			],
+			[
+				"monss",
+				"TheMeadow/Assets/__Scripts/MonsterSpawner.cs"
+			],
+			[
+				"littlm",
+				"TheMeadow/Assets/__Scripts/LittleMonsterController.cs"
+			],
+			[
+				"lastl",
+				"TheMeadow/Assets/__Scripts/LastLittleMonsterController.cs"
+			],
+			[
+				"timeli",
+				"TheMeadow/Assets/__Scripts/Timeline/Timeline.cs"
+			],
+			[
+				"liltmons",
+				"TheMeadow/Assets/__Scripts/LittleMonsterController.cs"
+			],
+			[
+				"eyecon",
+				"TheMeadow/Assets/__Scripts/MonsterBehaviours/EyeControlBehaviour.cs"
+			],
+			[
+				"monster",
+				"TheMeadow/Assets/__Scripts/MonsterRising.cs"
+			],
+			[
+				"monst",
+				"TheMeadow/Assets/__Scripts/MonsterSystem.cs"
+			],
+			[
+				"littlemons",
+				"TheMeadow/Assets/__Scripts/LittleMonsterController.cs"
+			],
+			[
+				"timelin",
+				"TheMeadow/Assets/__Scripts/Timeline/Timeline.cs"
+			],
+			[
+				"lilmonst",
+				"TheMeadow/Assets/__Scripts/LilMonsterCapsuleColliderController.cs"
+			],
+			[
+				"time",
+				"TheMeadow/Assets/__Scripts/Timeline/Timeline.cs"
+			],
+			[
+				"lilmo",
+				"TheMeadow/Assets/__Scripts/LilMonsterCapsuleColliderController.cs"
+			],
+			[
+				"bil",
+				"TheMeadow/Assets/__Scripts/Billboard.cs"
+			],
+			[
+				"timli",
+				"TheMeadow/Assets/__Scripts/Timeline/Timeline.cs"
+			],
+			[
+				"monstersp",
+				"TheMeadow/Assets/__Scripts/MonsterSpawner.cs"
+			],
+			[
+				"eyelid",
+				"TheMeadow/Assets/__Scripts/LittleMonsterEyelid.cs"
+			],
+			[
+				"littlemonstercon",
+				"~/tem/Meadow/TheMeadow/Assets/__Scripts/LittleMonsterController.cs"
+			],
+			[
+				"shak",
+				"TheMeadow/Assets/__Scripts/ShakingBehaviour.cs"
+			],
+			[
+				"monsbe",
+				"TheMeadow/Assets/__Scripts/Behaviours/MonsterBehaviour.cs"
+			],
+			[
+				"cir",
+				"TheMeadow/Assets/__Scripts/Behaviours/CirclingBehaviour.cs"
+			],
+			[
+				"cons",
+				"TheMeadow/Assets/__Scripts/UnityConstants.cs"
+			],
+			[
+				"anima",
+				"TheMeadow/Assets/__Scripts/UnityAnimationConstants.cs"
+			],
+			[
+				"limcon",
+				"TheMeadow/Assets/__Scripts/LittleMonsterController.cs"
+			],
+			[
+				"fall",
+				"TheMeadow/Assets/__Scripts/Behaviours/FallingBehaviour.cs"
+			],
+			[
+				"litt",
+				"TheMeadow/Assets/__Scripts/LittleMonster.cs"
+			],
+			[
+				".su",
+				"gra.sublime-project"
+			],
+			[
+				"",
+				"c/age_sort.cpp"
+			],
+			[
+				"~/tem",
+				"~/tem/eclipse/test.java"
+			],
+			[
+				"~",
+				"~/tem/eclipse/test.java"
+			],
+			[
+				"~/",
+				"~/tem/eclipse/test.java"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"take",
+				"TAKEN"
+			],
+			[
+				"cbp",
+				"CBP_TRACE_RECORD"
+			],
+			[
+				"sa",
+				"SatDecrement"
+			],
+			[
+				"from",
+				"getTransformMat"
+			],
+			[
+				"gett",
+				"getTransformMat"
+			],
+			[
+				"dir",
+				"direct_hist"
+			],
+			[
+				"genb",
+				"gen_block"
+			],
+			[
+				"sift",
+				"sift"
+			],
+			[
+				"c",
+				"check_in"
+			],
+			[
+				"",
+				"check_in"
+			],
+			[
+				"ch",
+				"check_in"
+			],
+			[
+				"chei",
+				"check_in"
+			]
+		],
+		"width": 392.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 153.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
