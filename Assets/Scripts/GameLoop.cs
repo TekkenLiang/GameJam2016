@@ -36,8 +36,8 @@ public class GameLoop : MonoBehaviour {
 
 		//initialize grid
         grids.InitializeGrids();
-        grids.SetTargetForPlayer(1, 1, 2);
-        grids.SetTargetForPlayer(2, 4, 2);
+        grids.SetTargetForPlayer(1, 0, 1);
+        grids.SetTargetForPlayer(2, 3, 1);
 
         playersStatus = new PlayerStatus[2];
         //spawn player
